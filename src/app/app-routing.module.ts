@@ -4,6 +4,7 @@ import {BridgeheadMainMenuComponent} from "./bridgehead-main-menu/bridgehead-mai
 import {NngmComponent} from "./nngm/nngm.component";
 import {QualityReportComponent} from "./quality-report/quality-report.component";
 import {ConfigurationComponent} from "./configuration/configuration.component";
+import {BridgeheadModule} from "./bridgehead/bridgehead.module";
 
 export const routingComponents = [
   BridgeheadMainMenuComponent,
@@ -20,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), BridgeheadModule],
   exports: [RouterModule]
 })
 

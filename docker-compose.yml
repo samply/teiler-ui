@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  teiler-ui:
+#    image: teiler-ui
+    build: .
+
+#    depends_on:
+#      - teiler-core
+    ports:
+      - 8085:80
+
+#  teiler-core :
+#    image: teiler-core

@@ -8,7 +8,6 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BridgeheadModule} from "./bridgehead/bridgehead.module";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from "@angular/material/list";
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -24,7 +23,6 @@ import {MatSelectModule} from "@angular/material/select";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BridgeheadModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
