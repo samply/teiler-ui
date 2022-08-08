@@ -2,9 +2,10 @@
   window["env"] = window["env"] || {};
 
   // Environment variables
-  window["env"]["example"] = {
+  window["env"]["config"] = {
     "example1": "${EXAMPLE_1}",
-    "example2": "${EXAMPLE_2}"
+    "example2": "${EXAMPLE_2}",
+    "nngmUrl": "${NNGM_URL}"
   };
 
 })(this);
