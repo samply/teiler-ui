@@ -7,6 +7,12 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
+      "i18n": {
+        "sourceLocale": "de",
+        "locales": {
+          "en": "src/i18n/messages.en.xlf"
+        }
+      },
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -16,6 +22,7 @@
             "outputPath": "dist/teiler-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "localize": ["de"],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -57,6 +64,9 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "en": {
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"
@@ -69,7 +79,11 @@
             },
             "development": {
               "browserTarget": "teiler-ui:build:development"
+            },
+            "en": {
+              "browserTarget": "teiler-ui:build:en"
             }
+
           },
           "defaultConfiguration": "development"
         },

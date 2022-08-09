@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="de">
+  <file id="ngi18n" original="ng.template">
+    <unit id="5244676528412939035">
+      <notes>
+        <note category="location">src/app/app.component.html:11</note>
+      </notes>
+      <segment>
+        <source>Teiler</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>
