@@ -3,13 +3,8 @@
 
   // Environment variables
   window["env"]["config"] = {
-    "example1": "example1-value",
-    "example2": "example2-value"
-  };
-
-  window["env"]["microservice-1"] = {
-    "example1": "example1-value",
-    "example2": "example2-value"
+    "DEFAULT_LANGUAGE": "DE",
+    "TEILER_CORE_URL": "http://localhost:8085/apps/de"
   };
 
 })(this);

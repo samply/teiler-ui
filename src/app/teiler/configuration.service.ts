@@ -1,16 +1,18 @@
 import {Injectable} from '@angular/core';
-import {LocalTeilerApp} from "./teiler-app";
+import {EmbeddedTeilerApp, EmbeddedTeilerApps} from "./teiler-app";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConfigurationService extends LocalTeilerApp {
+export class ConfigurationService extends EmbeddedTeilerApp {
+
+  constructor() {
+    super(EmbeddedTeilerApps.CONFIGURATION);
+  }
 
   description: string = "Configure teiler services";
   iconClass: string = "bi bi-gear-wide";
   iconSourceUrl: string | undefined = undefined;
-  name: string = "config";
-  routerLink: string = "config";
   title: string = "Teiler Configuration";
 
   /*

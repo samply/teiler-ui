@@ -1,16 +1,18 @@
 import {Injectable} from '@angular/core';
-import {LocalTeilerApp} from "./teiler-app";
+import {EmbeddedTeilerApp, EmbeddedTeilerApps} from "./teiler-app";
 
 @Injectable({
   providedIn: 'root'
 })
-export class QualityReportService extends LocalTeilerApp {
+export class QualityReportService extends EmbeddedTeilerApp {
 
   description: string = "Generate a Quality Report";
   iconClass: string = "bi bi-file-earmark-excel-fill";
   iconSourceUrl: string | undefined = undefined;
-  name: string = "quality-report";
-  routerLink: string = "quality-report";
   title: string = "Quality Report";
+
+  constructor() {
+    super(EmbeddedTeilerApps.QUALITY_REPORT);
+  }
 
 }

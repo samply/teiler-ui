@@ -3,8 +3,8 @@
 
   // Environment variables
   window["env"]["config"] = {
-    "example1": "${EXAMPLE_1}",
-    "example2": "${EXAMPLE_2}"
+    "DEFAULT_LANGUAGE": "${DEFAULT_LANGUAGE}",
+    "TEILER_CORE_URL": "${TEILER_CORE_URL}"
   };
 
 })(this);

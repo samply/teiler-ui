@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TeilerCoreClientService} from "./teiler-core-client.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'teiler-ui';
+
+
+  constructor(private teilerCoreClientService:TeilerCoreClientService) {
+  }
 }
