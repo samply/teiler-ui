@@ -1,42 +1,30 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Route, Router} from "@angular/router";
-import {EmbeddedTeilerApps, TeilerApp, TeilerRoles} from "./teiler/teiler-app";
-import {Observable} from "rxjs";
-import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
+import { Injectable } from '@angular/core';
+import {TeilerService} from "./teiler/teiler.service";
+import {EmbeddedTeilerApps, TeilerApp} from "./teiler/teiler-app";
 import {ConfigurationComponent} from "./configuration/configuration.component";
 import {QualityReportComponent} from "./quality-report/quality-report.component";
+import {Route, Router} from "@angular/router";
+import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TeilerCoreClientService {
+export class RouteManagerService {
 
-  teilerCoreUrl: string = "http://localhost:8085/apps/de";
   embeddedTeilerAppNameComponentMap = new Map<string, any>([
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
     {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
-  constructor(private httpClient: HttpClient, private route: Router) {
-    this.generateRoutes();
-  }
-
-  public fetchTeilerApps(): Observable<TeilerApp[]> {
-    return this.httpClient.get<TeilerApp[]>(this.teilerCoreUrl);
-  }
-
-  private generateRoutes() {
-    this.fetchTeilerApps().subscribe((data: TeilerApp[]) => {
-      this.route.resetConfig(this.fetchRoutes(data))
-    });
+  constructor(teilerService:TeilerService, private route: Router) {
+    teilerService.followTeilerApps().subscribe(teilerApps => this.route.resetConfig(this.fetchRoutes(teilerApps)));
   }
 
   private fetchRoutes(teilerApps: TeilerApp[]) {
 
-    console.log("adding routes");
+    console.log("adding routes "+ teilerApps.length);
     let routes: Route[] = [];
-    TeilerCoreClientService.addFirstRoutes(routes);
+    RouteManagerService.addFirstRoutes(routes);
     teilerApps.filter(teilerApp => teilerApp.activated && !teilerApp.externLink).forEach(teilerApp => {
       if (this.embeddedTeilerAppNameComponentMap.has(teilerApp.name)) {
         routes.push({path: teilerApp.routerLink, component: this.embeddedTeilerAppNameComponentMap.get(teilerApp.name)})
@@ -51,7 +39,7 @@ export class TeilerCoreClientService {
       }*/
 
     })
-    TeilerCoreClientService.addFinalRoutes(routes);
+    RouteManagerService.addFinalRoutes(routes);
 
     return routes;
 

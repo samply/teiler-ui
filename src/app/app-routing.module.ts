@@ -4,7 +4,7 @@ import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.compo
 import {QualityReportComponent} from "./quality-report/quality-report.component";
 import {ConfigurationComponent} from "./configuration/configuration.component";
 import {TeilerModule} from "./teiler/teiler.module";
-import {TeilerCoreClientService} from "./teiler-core-client.service";
+import {RouteManagerService} from "./route-manager.service";
 
 export const routingComponents = [
   TeilerMainMenuComponent,
@@ -12,7 +12,7 @@ export const routingComponents = [
   ConfigurationComponent
 ]
 
-const routes: Routes = TeilerCoreClientService.fetchBasicRoutes();
+const routes: Routes = RouteManagerService.fetchBasicRoutes();
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), TeilerModule],

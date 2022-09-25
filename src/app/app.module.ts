@@ -13,9 +13,11 @@ import {MatListModule} from "@angular/material/list";
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import {TeilerCoreClientService} from "./teiler-core-client.service";
-import { TeilerAppPluginOrchestratorComponent } from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
+import {
+  TeilerAppPluginOrchestratorComponent
+} from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
 import {HttpClientModule} from "@angular/common/http";
+import {TeilerService} from "./teiler/teiler.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatSelectModule,
     HttpClientModule
   ],
-  providers: [TeilerCoreClientService],
+  providers: [TeilerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
