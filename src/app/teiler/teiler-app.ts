@@ -27,7 +27,7 @@ export interface TeilerApp {
   iconClass?: string;
   iconSourceUrl?: string;
   backendUrl?: string;
-  order?: string;
+  order?: number;
 
 }
 
@@ -43,7 +43,7 @@ export abstract class EmbeddedTeilerApp implements TeilerApp{
   externLink: boolean = false;
   local: boolean = true;
   name: string = "";
-  order: string | undefined = undefined;
+  order: number | undefined = undefined;
   roles: TeilerRoles[] = [];
   routerLink: string = "";
   singleSpaLink: string | undefined = undefined;

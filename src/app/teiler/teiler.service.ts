@@ -34,6 +34,8 @@ export class TeilerService {
         this.teilerApps.push(teilerCoreApp);
       }
     });
+
+    this.sortTeilerApps();
     this.teilerAppBehaviorSubject.next(this.teilerApps);
 
   }
@@ -49,6 +51,24 @@ export class TeilerService {
 
   followTeilerApps(): Observable<TeilerApp[]> {
     return this.teilerAppBehaviorSubject.asObservable();
+  }
+
+  sortTeilerApps(){
+    this.teilerApps = this.teilerApps.sort((teilerApp1, teilerApp2) => this.compareOrder(teilerApp1, teilerApp2));
+  }
+
+  compareOrder (teilerApp1: TeilerApp , teilerApp2: TeilerApp): number{
+
+    if (teilerApp1.order === undefined && teilerApp2.order === undefined){
+      return 0;
+    } else if (teilerApp1.order !== undefined && teilerApp2.order === undefined){
+      return -1;
+    }  else if (teilerApp1.order === undefined && teilerApp2.order !== undefined){
+      return 1;
+    } else{
+      // @ts-ignore
+      return teilerApp1.order - teilerApp2.order;
+    }
   }
 
 }
