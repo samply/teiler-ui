@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ConfigurationService} from "./configuration.service";
 import {QualityReportService} from "./quality-report.service";
-import {BridgeheadService} from "./bridgehead.service";
+import {TeilerService} from "./teiler.service";
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import {BridgeheadService} from "./bridgehead.service";
     CommonModule
   ],
   exports: [],
-  providers: [ConfigurationService, QualityReportService, BridgeheadService]
+  providers: [ConfigurationService, QualityReportService, TeilerService]
 })
-export class BridgeheadModule {
+export class TeilerModule {
 }

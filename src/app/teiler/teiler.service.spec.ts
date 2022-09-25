@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BridgeheadService } from './bridgehead.service';
+import { TeilerService } from './teiler.service';
 
-describe('BridgeheadService', () => {
-  let service: BridgeheadService;
+describe('TeilerService', () => {
+  let service: TeilerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BridgeheadService);
+    service = TestBed.inject(TeilerService);
   });
 
   it('should be created', () => {

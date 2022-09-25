@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BridgheadElement} from "../bridgehead/bridghead-element";
-import {BridgeheadService} from "../bridgehead/bridgehead.service";
+import {TeilerApp} from "../teiler/teiler-app";
+import {TeilerService} from "../teiler/teiler.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -9,10 +9,10 @@ import {BridgeheadService} from "../bridgehead/bridgehead.service";
 })
 export class SidebarComponent implements OnInit {
 
-  services: BridgheadElement[];
+  teilerApps: TeilerApp[];
 
-  constructor(bridgeheadService: BridgeheadService) {
-    this.services = bridgeheadService.services;
+  constructor(public teilerService: TeilerService) {
+    this.teilerApps = teilerService.teilerApps;
   }
 
   ngOnInit(): void {

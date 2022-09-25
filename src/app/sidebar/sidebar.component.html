@@ -1,25 +1,11 @@
-<!-- Toolbar -->
-
-<!--
-<mat-toolbar class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="DKTK Teiler"
-    src="/assets/dktk-logo.jpg"
-  />
-  <span>Teiler</span>
-  <div class="spacer"></div>
-  <span>log out</span>
-</mat-toolbar>
--->
 <br>
 <br>
 <br>
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" *ngIf="!isMainSite()">
       <mat-nav-list>
-        <div *ngFor="let service of services">
-          <a mat-list-item routerLink="{{'/'+service.route}}">{{service.titel}}</a>
+        <div *ngFor="let teilerApp of teilerApps">
+          <a mat-list-item routerLink="{{'/'+teilerApp.routerLink}}">{{teilerApp.title}}</a>
         </div>
       </mat-nav-list>
   </mat-sidenav>

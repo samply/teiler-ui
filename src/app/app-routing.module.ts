@@ -1,24 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BridgeheadMainMenuComponent} from "./bridgehead-main-menu/bridgehead-main-menu.component";
+import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
 import {QualityReportComponent} from "./quality-report/quality-report.component";
 import {ConfigurationComponent} from "./configuration/configuration.component";
-import {BridgeheadModule} from "./bridgehead/bridgehead.module";
+import {TeilerModule} from "./teiler/teiler.module";
 
 export const routingComponents = [
-  BridgeheadMainMenuComponent,
+  TeilerMainMenuComponent,
   QualityReportComponent,
   ConfigurationComponent
 ]
 
 const routes: Routes = [
-  {path: '', component: BridgeheadMainMenuComponent},
+  {path: '', component: TeilerMainMenuComponent},
   {path: 'quality-report', component: QualityReportComponent},
   {path: 'config', component: ConfigurationComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), BridgeheadModule],
+  imports: [RouterModule.forRoot(routes), TeilerModule],
   exports: [RouterModule]
 })
 

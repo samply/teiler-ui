@@ -1,0 +1,16 @@
+<div class="content" role="main">
+  <div class="card-container">
+    <a class="card" *ngFor="let teilerApp of teilerService.teilerApps"
+       routerLink="{{'/'+teilerApp.routerLink}}">
+      <div class="main-menu-element-icon">
+        <div *ngIf="teilerApp.iconClass != undefined">
+          <i class="{{teilerApp.iconClass}}"></i>
+        </div>
+        <div *ngIf="teilerApp.iconSourceUrl ! undefined">
+          <img src="{{teilerApp.iconSourceUrl}}" alt="image">
+        </div>
+      </div>
+      <span>{{teilerApp.title}}</span>
+    </a>
+  </div>
+</div>
