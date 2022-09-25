@@ -3,11 +3,17 @@
 <br>
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" *ngIf="!isMainSite()">
-      <mat-nav-list>
-        <div *ngFor="let teilerApp of teilerApps">
+    <mat-nav-list>
+      <div *ngFor="let teilerApp of teilerApps">
+        <div *ngIf="!teilerApp.externLink">
           <a mat-list-item routerLink="{{'/'+teilerApp.routerLink}}">{{teilerApp.title}}</a>
         </div>
-      </mat-nav-list>
+        <div *ngIf="teilerApp.externLink">
+          <a mat-list-item routerLink="{{'/'+teilerApp.routerLink}}"
+             [externalLink]="teilerApp.sourceUrl??''">{{teilerApp.title}}</a>
+        </div>
+      </div>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="router-style">

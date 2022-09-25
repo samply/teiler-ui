@@ -17,13 +17,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {TeilerService} from "./teiler/teiler.service";
 import { TeilerAppPluginOrchestratorComponent } from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
 import {ParcelModule} from "single-spa-angular/parcel";
+import { ExternalLinkDirective } from './external-link.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     SidebarComponent,
-    TeilerAppPluginOrchestratorComponent
+    TeilerAppPluginOrchestratorComponent,
+    ExternalLinkDirective
   ],
   imports: [
     BrowserModule,
