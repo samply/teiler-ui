@@ -5,6 +5,7 @@ import {ConfigurationComponent} from "./configuration/configuration.component";
 import {QualityReportComponent} from "./quality-report/quality-report.component";
 import {Route, Router} from "@angular/router";
 import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
+import {EmptyRouteComponent} from "./empty-route/empty-route.component";
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,7 @@ export class RouteManagerService {
   }
 
   private static addFinalRoutes(routes: Route[]) {
-    //routes.push({path: '**', component: EmptyRouteComponent});
+    routes.push({path: '**', component: EmptyRouteComponent});
   }
 
   public static fetchBasicRoutes() {

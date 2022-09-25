@@ -18,7 +18,9 @@ export class TeilerService {
     configurationService: ConfigurationService
   ) {
     [qualityReportService, configurationService].forEach(teilerApp => this.teilerApps.push(teilerApp));
-    httpClient.get<TeilerApp[]>(environment.config.TEILER_CORE_URL).subscribe((data: TeilerApp[]) => this.addTeilerCoreApps(data));
+    //TODO:
+    //httpClient.get<TeilerApp[]>(environment.config.TEILER_CORE_URL).subscribe((data: TeilerApp[]) => this.addTeilerCoreApps(data));
+    httpClient.get<TeilerApp[]>("http://localhost:8085/apps/de").subscribe((data: TeilerApp[]) => this.addTeilerCoreApps(data));
   }
 
   addTeilerCoreApps(teilerCoreApps: TeilerApp[]) {

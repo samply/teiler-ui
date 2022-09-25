@@ -3,7 +3,7 @@ import {RouteManagerService} from "./route-manager.service";
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'teiler-ui',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

@@ -13,9 +13,6 @@ import {MatListModule} from "@angular/material/list";
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import {
-  TeilerAppPluginOrchestratorComponent
-} from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
 import {HttpClientModule} from "@angular/common/http";
 import {TeilerService} from "./teiler/teiler.service";
 
@@ -23,8 +20,7 @@ import {TeilerService} from "./teiler/teiler.service";
   declarations: [
     AppComponent,
     routingComponents,
-    SidebarComponent,
-    TeilerAppPluginOrchestratorComponent
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

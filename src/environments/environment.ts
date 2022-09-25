@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  config: (window as any).env.config || {}
+  //config: (window as any).env.config || {}
 };
