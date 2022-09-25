@@ -15,12 +15,15 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClientModule} from "@angular/common/http";
 import {TeilerService} from "./teiler/teiler.service";
+import { TeilerAppPluginOrchestratorComponent } from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
+import {ParcelModule} from "single-spa-angular/parcel";
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    SidebarComponent
+    SidebarComponent,
+    TeilerAppPluginOrchestratorComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {TeilerService} from "./teiler/teiler.service";
     MatListModule,
     MatFormFieldModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    ParcelModule
   ],
   providers: [TeilerService],
   bootstrap: [AppComponent]

@@ -7,12 +7,16 @@ import {TeilerModule} from "./teiler/teiler.module";
 import {RouteManagerService} from "./route-manager.service";
 import {EmptyRouteComponent} from "./empty-route/empty-route.component";
 import {APP_BASE_HREF} from "@angular/common";
+import {
+  TeilerAppPluginOrchestratorComponent
+} from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
 
 export const routingComponents = [
   EmptyRouteComponent,
   TeilerMainMenuComponent,
   QualityReportComponent,
-  ConfigurationComponent
+  ConfigurationComponent,
+  TeilerAppPluginOrchestratorComponent
 ]
 
 const routes: Routes = RouteManagerService.fetchBasicRoutes();

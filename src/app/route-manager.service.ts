@@ -6,6 +6,9 @@ import {QualityReportComponent} from "./quality-report/quality-report.component"
 import {Route, Router} from "@angular/router";
 import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
 import {EmptyRouteComponent} from "./empty-route/empty-route.component";
+import {
+  TeilerAppPluginOrchestratorComponent
+} from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +32,15 @@ export class RouteManagerService {
     teilerApps.filter(teilerApp => teilerApp.activated && !teilerApp.externLink).forEach(teilerApp => {
       if (this.embeddedTeilerAppNameComponentMap.has(teilerApp.name)) {
         routes.push({path: teilerApp.routerLink, component: this.embeddedTeilerAppNameComponentMap.get(teilerApp.name)})
-      }
-      /*
-      else {
+      } else {
+        routes.push({path: teilerApp.routerLink, component: TeilerAppPluginOrchestratorComponent});
+        /*
         if (teilerApp.roles.includes(TeilerRoles.TEILER_PUBLIC)) {
-          routes.push({path: teilerApp.routerLink, component: OrchestratorComponent});
+          routes.push({path: teilerApp.routerLink, component: TeilerAppPluginOrchestratorComponent});
         } else {
-          routes.push({path: teilerApp.routerLink, component: OrchestratorComponent, canActivate: [AuthGuard]});
-        }
-      }*/
+          routes.push({path: teilerApp.routerLink, component: TeilerAppPluginOrchestratorComponent, canActivate: [AuthGuard]});
+        }*/
+      }
 
     })
     RouteManagerService.addFinalRoutes(routes);
