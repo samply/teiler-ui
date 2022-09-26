@@ -4,7 +4,7 @@
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" *ngIf="!isMainSite()">
     <mat-nav-list>
-      <div *ngFor="let teilerApp of teilerApps">
+      <div *ngFor="let teilerApp of teilerService.teilerApps">
         <div *ngIf="!teilerApp.externLink">
           <a mat-list-item routerLink="{{'/'+teilerApp.routerLink}}">{{teilerApp.title}}</a>
         </div>

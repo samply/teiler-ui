@@ -9,11 +9,7 @@ import {TeilerService} from "../teiler/teiler.service";
 })
 export class SidebarComponent implements OnInit {
 
-  teilerApps: TeilerApp[];
-
-  constructor(public teilerService: TeilerService) {
-    this.teilerApps = teilerService.teilerApps;
-  }
+  constructor(public teilerService: TeilerService) {}
 
   ngOnInit(): void {
   }
