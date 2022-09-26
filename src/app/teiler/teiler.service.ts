@@ -5,6 +5,7 @@ import {TeilerApp, TeilerRole} from "./teiler-app";
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {TeilerAuthService} from "../security/teiler-auth.service";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class TeilerService {
@@ -22,12 +23,16 @@ export class TeilerService {
   ) {
     [qualityReportService, configurationService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
     this.filterTeilerApps();
-    //TODO:
-    //httpClient.get<TeilerApp[]>(environment.config.TEILER_CORE_URL).subscribe((data: TeilerApp[]) => this.addTeilerCoreApps(data));
-    httpClient.get<TeilerApp[]>("http://localhost:8085/apps/de").subscribe(teilerApps => {
+    httpClient.get<TeilerApp[]>(this.getTeilerCoreUrl()).subscribe(teilerApps => {
       this.addTeilerCoreApps(teilerApps);
       this.filterTeilerApps()
     });
+  }
+
+  getTeilerCoreUrl(){
+    //TODO
+    //return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
+    return "http://localhost:8085/apps/de";
   }
 
   filterTeilerApps() {
