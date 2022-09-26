@@ -1,9 +1,9 @@
 import {environment} from "../../environments/environment";
 
-export enum TeilerRoles{
-  TEILER_PUBLIC,
-  TEILER_USER,
-  TEILER_ADMIN
+export enum TeilerRole{
+  TEILER_PUBLIC = 'TEILER_PUBLIC',
+  TEILER_USER = 'TEILER_USER',
+  TEILER_ADMIN = 'TEILER_ADMIN'
 }
 
 export enum EmbeddedTeilerApps{
@@ -23,7 +23,7 @@ export interface TeilerApp {
   externLink: boolean;
   activated: boolean;
   local: boolean;
-  roles: TeilerRoles[];
+  roles: TeilerRole[];
   iconClass?: string;
   iconSourceUrl?: string;
   backendUrl?: string;
@@ -37,6 +37,7 @@ export abstract class EmbeddedTeilerApp implements TeilerApp{
   abstract iconClass: string | undefined;
   abstract iconSourceUrl: string | undefined;
   abstract title: string;
+  abstract roles: TeilerRole[];
 
   activated: boolean = false;
   backendUrl: string | undefined = undefined;
@@ -44,7 +45,6 @@ export abstract class EmbeddedTeilerApp implements TeilerApp{
   local: boolean = true;
   name: string = "";
   order: number | undefined = undefined;
-  roles: TeilerRoles[] = [];
   routerLink: string = "";
   singleSpaLink: string | undefined = undefined;
   singleSpaMainJs: string | undefined = undefined;

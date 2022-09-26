@@ -8,14 +8,22 @@
       src="https://dktk.dkfz.de/packages/dktk/img/logo-dktk-sign.svg"
     />
   </a>
-  <span i18n>Teiler</span>
+  <span i18n>Teiler UI</span>
   <div class="spacer"></div>
 
-  <span>user</span>
+  <div>
+    <span style="color:white">{{user}}</span>
+  </div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span>log out</span>
-
-
+  <div>
+    <div *ngIf="!isLoggedIn">
+      <a routerLink="login"><span style="color:white">log in</span></a>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <a routerLink="logout" (click)="authService.logout()"><span style="color:white">log out</span></a>
+    </div>
+  </div>
+  &nbsp;&nbsp;&nbsp;
 </div>
 
 <div>

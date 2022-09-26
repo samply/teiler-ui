@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
-import {QualityReportComponent} from "./quality-report/quality-report.component";
-import {ConfigurationComponent} from "./configuration/configuration.component";
+import {QualityReportComponent} from "./embedded/quality-report/quality-report.component";
+import {ConfigurationComponent} from "./embedded/configuration/configuration.component";
 import {TeilerModule} from "./teiler/teiler.module";
 import {RouteManagerService} from "./route-manager.service";
 import {EmptyRouteComponent} from "./empty-route/empty-route.component";

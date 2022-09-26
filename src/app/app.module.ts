@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -18,6 +18,8 @@ import {TeilerService} from "./teiler/teiler.service";
 import { TeilerAppPluginOrchestratorComponent } from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
 import {ParcelModule} from "single-spa-angular/parcel";
 import { ExternalLinkDirective } from './external-link.directive';
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import {initializeKeycloak} from "./security/keycloak/keycloak-init.factory";
 
 @NgModule({
   declarations: [
@@ -40,9 +42,18 @@ import { ExternalLinkDirective } from './external-link.directive';
     MatFormFieldModule,
     MatSelectModule,
     HttpClientModule,
-    ParcelModule
+    ParcelModule,
+    KeycloakAngularModule
   ],
-  providers: [TeilerService],
+  providers: [
+    TeilerService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

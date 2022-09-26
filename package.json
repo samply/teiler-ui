@@ -24,6 +24,8 @@
     "@angular/router": "^14.1.0",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
+    "keycloak-angular": "^12.1.0",
+    "keycloak-js": "^19.0.2",
     "rxjs": "~7.5.0",
     "single-spa": ">=4.0.0",
     "single-spa-angular": "^7.1.0",

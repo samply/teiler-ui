@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {EmbeddedTeilerApp, EmbeddedTeilerApps} from "./teiler-app";
+import {EmbeddedTeilerApp, EmbeddedTeilerApps, TeilerRole} from "./teiler-app";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class QualityReportService extends EmbeddedTeilerApp {
   iconClass: string = "bi bi-file-earmark-excel-fill";
   iconSourceUrl: string | undefined = undefined;
   title: string = "Quality Report";
+  roles: TeilerRole[] = [TeilerRole.TEILER_ADMIN];
 
   constructor() {
     super(EmbeddedTeilerApps.QUALITY_REPORT);
