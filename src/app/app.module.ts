@@ -14,12 +14,16 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClientModule} from "@angular/common/http";
-import {TeilerService} from "./teiler/teiler.service";
-import { TeilerAppPluginOrchestratorComponent } from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
+import {
+  TeilerAppPluginOrchestratorComponent
+} from './teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component';
 import {ParcelModule} from "single-spa-angular/parcel";
-import { ExternalLinkDirective } from './external-link.directive';
+import {ExternalLinkDirective} from './external-link.directive';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./security/keycloak/keycloak-init.factory";
+import {TeilerModule} from "./teiler/teiler.module";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,13 +44,16 @@ import {initializeKeycloak} from "./security/keycloak/keycloak-init.factory";
     NoopAnimationsModule,
     MatListModule,
     MatFormFieldModule,
+    MatInputModule,
     MatSelectModule,
     HttpClientModule,
     ParcelModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TeilerModule
   ],
   providers: [
-    TeilerService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

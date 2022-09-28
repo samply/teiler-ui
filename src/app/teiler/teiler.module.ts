@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ConfigurationService} from "./configuration.service";
 import {QualityReportService} from "./quality-report.service";
 import {TeilerService} from "./teiler.service";
+import {TeilerConfigService} from "./teiler-config.service";
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import {TeilerService} from "./teiler.service";
     CommonModule
   ],
   exports: [],
-  providers: [ConfigurationService, QualityReportService, TeilerService]
+  providers: [ConfigurationService, QualityReportService, TeilerService, TeilerConfigService]
 })
 export class TeilerModule {
 }

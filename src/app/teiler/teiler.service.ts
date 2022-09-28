@@ -23,13 +23,13 @@ export class TeilerService {
   ) {
     [qualityReportService, configurationService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
     this.filterTeilerApps();
-    httpClient.get<TeilerApp[]>(this.getTeilerCoreUrl()).subscribe(teilerApps => {
+    httpClient.get<TeilerApp[]>(this.getTeilerCoreAppsUrl()).subscribe(teilerApps => {
       this.addTeilerCoreApps(teilerApps);
       this.filterTeilerApps()
     });
   }
 
-  getTeilerCoreUrl(){
+  getTeilerCoreAppsUrl(){
     //TODO
     //return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
     return "http://localhost:8085/apps/de";
