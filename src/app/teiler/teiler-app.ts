@@ -1,12 +1,12 @@
 import {environment} from "../../environments/environment";
 
-export enum TeilerRole{
+export enum TeilerRole {
   TEILER_PUBLIC = 'TEILER_PUBLIC',
   TEILER_USER = 'TEILER_USER',
   TEILER_ADMIN = 'TEILER_ADMIN'
 }
 
-export enum EmbeddedTeilerApps{
+export enum EmbeddedTeilerApps {
   CONFIGURATION = 'config',
   QUALITY_REPORT = 'quality-report'
 }
@@ -31,7 +31,7 @@ export interface TeilerApp {
 
 }
 
-export abstract class EmbeddedTeilerApp implements TeilerApp{
+export abstract class EmbeddedTeilerApp implements TeilerApp {
 
   abstract description: string;
   abstract iconClass: string | undefined;
@@ -57,5 +57,24 @@ export abstract class EmbeddedTeilerApp implements TeilerApp{
     //this.routerLink = environment.config.DEFAULT_LANGUAGE.toLowerCase() + '/' + name;
     this.routerLink = "de" + '/' + name;
   }
+
+}
+
+export class EmptyTeilerApp implements TeilerApp {
+  activated: boolean = false;
+  backendUrl: undefined = undefined;
+  description: string = "";
+  externLink: boolean = false;
+  iconClass: undefined = undefined;
+  iconSourceUrl: undefined = undefined;
+  local: boolean = true;
+  name: string = "empty";
+  order: undefined = undefined;
+  roles: TeilerRole[] = [];
+  routerLink: string = "/empty";
+  singleSpaLink: undefined = undefined;
+  singleSpaMainJs: undefined = undefined;
+  sourceUrl: undefined = undefined;
+  title: string = "";
 
 }

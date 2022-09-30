@@ -2,32 +2,15 @@
   <div class="card-container">
     <div *ngFor="let teilerApp of teilerService.teilerApps">
       <div *ngIf="!teilerApp.externLink">
-        <a class="card" routerLink="{{'/'+teilerApp.routerLink}}">
-          <div class="main-menu-element-icon">
-            <div *ngIf="teilerApp.iconClass != undefined">
-              <i class="{{teilerApp.iconClass}}"></i>
-            </div>
-            <div *ngIf="teilerApp.iconSourceUrl != undefined">
-              <img src="{{teilerApp.iconSourceUrl}}" alt="image">
-            </div>
-          </div>
-          <span>{{teilerApp.title}}</span>
+        <a routerLink="{{'/'+teilerApp.routerLink}}">
+          <teiler-box [teilerApp]="teilerApp"></teiler-box>
         </a>
       </div>
       <div *ngIf="teilerApp.externLink">
-        <a class="card" routerLink="{{'/'+teilerApp.routerLink}}" [externalLink]="teilerApp.sourceUrl??''">
-          <div class="main-menu-element-icon">
-            <div *ngIf="teilerApp.iconClass != undefined">
-              <i class="{{teilerApp.iconClass}}"></i>
-            </div>
-            <div *ngIf="teilerApp.iconSourceUrl != undefined">
-              <img src="{{teilerApp.iconSourceUrl}}" alt="image">
-            </div>
-          </div>
-          <span>{{teilerApp.title}}</span>
+        <a routerLink="{{'/'+teilerApp.routerLink}}" [externalLink]="teilerApp.sourceUrl??''">
+          <teiler-box [teilerApp]="teilerApp"></teiler-box>
         </a>
       </div>
-
     </div>
   </div>
 </div>

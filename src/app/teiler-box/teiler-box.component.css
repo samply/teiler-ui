@@ -1,0 +1,106 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.teiler-imagebox {
+  width: 20%
+}
+.teiler-textbox {
+  width: 80%
+}
+
+.teiler-box-icon{
+  margin-right: 5px;
+}
+
+.teiler-box-icon i {
+  font-size: 45px;
+  color: black;
+}
+.teiler-box-image img {
+  width: 100%;
+}
+
+.teiler-box-image {
+  margin: 5% 20% 5% 0;
+}
+.teiler-box {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 100px;
+  width: 300px;
+  margin: 0 8px 16px;
+  padding: 20px;
+  display: grid;
+  flex-direction: row;
+ /* justify-content: left;*/
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+.teiler-box:not(:last-child) {
+  margin-right: 0;
+}
+
+.teiler-box.card-small {
+  height: 16px;
+  width: 168px;
+}
+
+.text-green {
+  color: white;
+  background: radial-gradient(ellipse at center, #066711 0%, #53B32E 54%, #FFFFFF 100%);
+}
+.text-red{
+  color: white;
+  background: radial-gradient(ellipse at center, #B61A37 0%, #E6293E 54%, #FFFFFF 100%);
+}
+
+.text-circle{
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 6px 7px -7px #000000, 5px 5px 7px 5px rgba(0,0,0,0);
+  color: white;
+  font: bold 15px/13px Helvetica, Verdana, Tahoma;
+  height: 16px;
+  min-width: 14px;
+  padding: 4px 3px 0 3px;
+  margin: 2px;
+  text-align: center;
+}
+
+.teiler-box:not(.highlight-card) {
+  cursor: pointer;
+}
+
+.teiler-box:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.teiler-box:not(.highlight-card):hover .material-icons path {
+  fill: rgb(105, 103, 103);
+}
+
+.teiler-box.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
+
+.teiler-box.card.highlight-card span {
+  margin-left: 60px;
+}
+
+.teiler-box-title {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 5px;
+}
+.teiler-box-description {
+  font-size: 16px;
+  color: darkgrey;
+}

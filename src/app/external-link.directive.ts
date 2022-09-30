@@ -9,7 +9,13 @@ export class ExternalLinkDirective {
   @Input() externalLink: string = '';
 
   constructor(private routerLinkWithHref: RouterLinkWithHref) {
-    routerLinkWithHref.onClick = () => {window.location.href=this.externalLink; return false;};
+    routerLinkWithHref.onClick = () => {
+      if (this.externalLink != null && this.externalLink != undefined && this.externalLink.length > 0){
+        window.location.href=this.externalLink;
+        return false;
+      }
+      return true;
+    };
   }
 
 }

@@ -1,0 +1,20 @@
+<div class="teiler-box">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div class="teiler-imagebox">
+        <div class="teiler-box-icon" *ngIf="teilerApp.iconClass != undefined">
+          <i class="{{teilerApp.iconClass}}"></i>
+        </div>
+        <div class="teiler-box-image" *ngIf="teilerApp.iconSourceUrl != undefined">
+          <img src="{{teilerApp.iconSourceUrl}}">
+        </div>
+      </div>
+      <div class="teiler-textbox">
+        <div class="teiler-box-title">{{teilerApp.title}}</div>
+        <div class="teiler-box-description">{{teilerApp.description}}</div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end" class="teiler-box-checks">
+      <div class="teiler-box-check-frontend text-green text-circle">F</div>
+      <div class="teiler-box-check-backend text-red text-circle">B</div>
+    </div>
+</div>
