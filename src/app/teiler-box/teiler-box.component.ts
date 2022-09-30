@@ -10,9 +10,20 @@ export class TeilerBoxComponent implements OnInit {
 
   @Input() teilerApp: TeilerApp = new EmptyTeilerApp();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  showFrontendCheck(): boolean {
+    return (this.teilerApp.frontendReachable != null && this.teilerApp.frontendReachable != undefined)
+      || (this.teilerApp.externLink);
+  }
+
+  showBackendCheck(): boolean {
+    return (this.teilerApp.backendReachable != null && this.teilerApp.backendReachable != undefined)
+      || (this.teilerApp.externLink && (this.teilerApp.backendUrl != null || this.teilerApp.backendUrl != undefined));
   }
 
 }

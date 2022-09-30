@@ -28,6 +28,8 @@ export interface TeilerApp {
   iconSourceUrl?: string;
   backendUrl?: string;
   order?: number;
+  backendReachable?: boolean | undefined;
+  frontendReachable?: boolean | undefined;
 
 }
 
@@ -49,6 +51,7 @@ export abstract class EmbeddedTeilerApp implements TeilerApp {
   singleSpaLink: string | undefined = undefined;
   singleSpaMainJs: string | undefined = undefined;
   sourceUrl: string | undefined = undefined;
+  frontendReachable: boolean = true;
 
 
   constructor(name: string) {

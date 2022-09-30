@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {TeilerAuthService} from "../security/teiler-auth.service";
 import {environment} from "../../environments/environment";
 
+
 @Injectable()
 export class TeilerService {
 
@@ -29,7 +30,7 @@ export class TeilerService {
     });
   }
 
-  getTeilerCoreAppsUrl(){
+  getTeilerCoreAppsUrl() {
     //TODO
     //return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
     return "http://localhost:8085/apps/de";
@@ -46,7 +47,7 @@ export class TeilerService {
     let isAuthorized = false;
 
     let teilerAppRoles = new Set(teilerApp.roles);
-    if (teilerAppRoles.size == 0){
+    if (teilerAppRoles.size == 0) {
       isAuthorized = true;
     } else if (teilerAppRoles.has(TeilerRole.TEILER_PUBLIC) && this.authService.getRoles().length == 0) {
       isAuthorized = true;
