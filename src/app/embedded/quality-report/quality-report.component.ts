@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 import {DatePipe} from '@angular/common';
-import {boxes, Boxes} from "./boxes";
+import {boxes} from "../boxes";
 
 
 export interface QualityReports {

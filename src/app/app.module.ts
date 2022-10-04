@@ -32,6 +32,7 @@ import {TeilerWelcomeComponent} from './teiler-welcome/teiler-welcome.component'
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,

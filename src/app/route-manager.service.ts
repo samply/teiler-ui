@@ -10,6 +10,7 @@ import {
   TeilerAppPluginOrchestratorComponent
 } from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
 import {AuthGuard} from "./security/guard/auth.guard";
+import {FunctionTestsComponent} from "./embedded/function-tests/function-tests.component";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class RouteManagerService {
 
   embeddedTeilerAppNameComponentMap = new Map<string, any>([
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
-    {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent}
+    {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent},
+    {name: EmbeddedTeilerApps.FUNCTION_TESTS, component: FunctionTestsComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private route: Router) {
@@ -40,7 +42,6 @@ export class RouteManagerService {
   private addTeilerAppToRoutes(teilerApp: TeilerApp, routes: Route[]) {
 
     let route: Route = {path: teilerApp.routerLink}
-
 
     if (!teilerApp.roles.includes(TeilerRole.TEILER_PUBLIC)) {
       route.canActivate = [AuthGuard];

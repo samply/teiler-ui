@@ -6,6 +6,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {TeilerAuthService} from "../security/teiler-auth.service";
 import {environment} from "../../environments/environment";
+import {FunctionTestsService} from "./function-tests.service";
 
 
 @Injectable()
@@ -20,9 +21,10 @@ export class TeilerService {
     private authService: TeilerAuthService,
     httpClient: HttpClient,
     qualityReportService: QualityReportService,
-    configurationService: ConfigurationService
+    configurationService: ConfigurationService,
+    functionTestsService: FunctionTestsService
   ) {
-    [qualityReportService, configurationService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
+    [qualityReportService, configurationService, functionTestsService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
     this.filterTeilerApps();
     httpClient.get<TeilerApp[]>(this.getTeilerCoreAppsUrl()).subscribe(teilerApps => {
       this.addTeilerCoreApps(teilerApps);

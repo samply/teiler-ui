@@ -1,0 +1,86 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+html{
+  min-height: fit-content;
+  min-width: fit-content;
+  height: 80%;
+
+}
+header{
+  background-color: blue;
+  padding: 0.05%;
+
+}
+.main{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.over{
+  width: 70%;
+  margin-left: 12%;
+  margin-right: 10%;
+  color: #fcfcfc;
+  margin-top: 1%;
+}
+.line{
+  width: 70%;
+  margin-left: 12%;
+  margin-right: 10%;
+  color: #fcfcfc;
+}
+h1{
+  color: white;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 28px;
+  margin-left: 20%;
+}
+.x1{
+  margin-top: 1%;
+  margin-left: 11%;
+  width:70%;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 18px;
+  padding: 0.5%;
+}
+.inside{
+  width:97.8%;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 18px;
+  border: solid 1px lightgrey;
+  padding: 1%;
+}
+mat-card{
+  background-color: lightgray;
+}
+mat-expansion-panel{
+  padding:0.6%;
+}
+button{
+  background-color: royalblue;
+  color: white;
+  padding: 0.01%;
+}
+h2{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 36px;
+  margin-left: 13%;
+  margin-top: 1.5%;
+}
+h3{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 22px;
+  margin-left: 13%;
+  margin-top: 1.5%;
+}
+.icons{
+  color: limegreen;
+  font-size: 600%;
+}
