@@ -16,3 +16,7 @@ td {
 .mat-raised-button{
   background-color: seagreen;
 }
+
+.configuration-mat-sidenav{
+  width: 25%;
+}
