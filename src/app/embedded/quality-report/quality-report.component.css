@@ -1,0 +1,95 @@
+@media only screen and (max-width: 700px) {
+
+  .header, .button {
+    width: 100%;
+  }
+}
+html{
+  min-height: fit-content;
+  min-width: fit-content;
+  height: 80%;
+}
+header{
+  background-color: blue;
+  padding: 0.05%;
+}
+.main{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.over{
+  width: 70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #fcfcfc;
+}
+
+button{
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 14px;
+  border-radius: 10px;
+  font-family:Segoe UI,serif;
+  padding: 0.5%;
+}
+.button{
+  margin-top:1.5%;
+  font-family:Segoe UI,serif;
+  text-align: left;
+  margin-left: 10%;
+  font-size: 14px;
+  width: 70%;
+}
+mat-progress-bar{
+  width:75%;
+}
+.selects{
+  font-size: 100%;
+  font-family: Segoe UI, serif;
+  color: grey;
+  margin-top:1.5%;
+  margin-left:10%;
+  flex-direction: row;
+  margin-right: 23%;
+
+}
+.search{
+  float: left;
+  margin-right: 75%;
+  margin-bottom: 2%;
+}
+table{
+  text-align: center;
+  width: 70%;
+  color: dimgrey;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+.mat-column-zeitstempel {
+  text-align: left;
+  font-size: 115%;
+}
+
+.mat-column-version {
+  font-size: 115%;
+  text-align: center;
+}
+.paginator{
+  margin-right: 20%;
+}
+h1{
+  color: white;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 28px;
+  margin-left: 18%;
+}
+h2{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 32px;
+  margin-left: 10%;
+  margin-top: 1.5%;
+}

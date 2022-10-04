@@ -24,11 +24,14 @@ import {initializeKeycloak} from "./security/keycloak/keycloak-init.factory";
 import {TeilerModule} from "./teiler/teiler.module";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { TeilerBoxComponent } from './teiler-box/teiler-box.component';
+import {TeilerBoxComponent} from './teiler-box/teiler-box.component';
 import {MatCardModule} from "@angular/material/card";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatGridListModule} from "@angular/material/grid-list";
-import { TeilerWelcomeComponent } from './teiler-welcome/teiler-welcome.component';
+import {TeilerWelcomeComponent} from './teiler-welcome/teiler-welcome.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -40,29 +43,32 @@ import { TeilerWelcomeComponent } from './teiler-welcome/teiler-welcome.componen
     TeilerBoxComponent,
     TeilerWelcomeComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        MatDividerModule,
-        NoopAnimationsModule,
-        MatListModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        HttpClientModule,
-        ParcelModule,
-        KeycloakAngularModule,
-        FormsModule,
-        ReactiveFormsModule,
-        TeilerModule,
-        MatCardModule,
-        FlexLayoutModule,
-        MatGridListModule
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
+    KeycloakAngularModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    NoopAnimationsModule,
+    ParcelModule,
+    ReactiveFormsModule,
+    TeilerModule
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,
