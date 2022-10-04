@@ -5,6 +5,7 @@ import {QualityReportService} from "./quality-report.service";
 import {TeilerService} from "./teiler.service";
 import {TeilerConfigService} from "./teiler-config.service";
 import {FunctionTestsService} from "./function-tests.service";
+import {EventLogService} from "./event-log.service";
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import {FunctionTestsService} from "./function-tests.service";
     CommonModule
   ],
   exports: [],
-  providers: [ConfigurationService, QualityReportService, FunctionTestsService, TeilerService, TeilerConfigService]
+  providers: [ConfigurationService, QualityReportService, FunctionTestsService, EventLogService, TeilerService, TeilerConfigService]
 })
 export class TeilerModule {
 }

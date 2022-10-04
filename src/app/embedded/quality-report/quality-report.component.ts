@@ -35,7 +35,7 @@ const ELEMENT_DATA: QualityReports[] = [
 ];
 
 @Component({
-  selector: 'quality-report',
+  selector: 'quality-report-app',
   templateUrl: './quality-report.component.html',
   styleUrls: ['./quality-report.component.css']
 })

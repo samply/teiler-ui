@@ -11,6 +11,7 @@ import {APP_BASE_HREF} from "@angular/common";
 import {
   TeilerAppPluginOrchestratorComponent
 } from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
+import {EventLogComponent} from "./embedded/event-log/event-log.component";
 
 
 export const routingComponents = [
@@ -19,6 +20,7 @@ export const routingComponents = [
   QualityReportComponent,
   FunctionTestsComponent,
   ConfigurationComponent,
+  EventLogComponent,
   TeilerAppPluginOrchestratorComponent
 ]
 

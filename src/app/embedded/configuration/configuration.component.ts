@@ -5,7 +5,7 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 
 
 @Component({
-  selector: 'app-configuration',
+  selector: 'configuration-app',
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.css']
 })

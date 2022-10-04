@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {TeilerAuthService} from "../security/teiler-auth.service";
 import {environment} from "../../environments/environment";
 import {FunctionTestsService} from "./function-tests.service";
+import {EventLogService} from "./event-log.service";
 
 
 @Injectable()
@@ -22,9 +23,10 @@ export class TeilerService {
     httpClient: HttpClient,
     qualityReportService: QualityReportService,
     configurationService: ConfigurationService,
-    functionTestsService: FunctionTestsService
+    functionTestsService: FunctionTestsService,
+    eventLogService: EventLogService
   ) {
-    [qualityReportService, configurationService, functionTestsService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
+    [qualityReportService, configurationService, functionTestsService, eventLogService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
     this.filterTeilerApps();
     httpClient.get<TeilerApp[]>(this.getTeilerCoreAppsUrl()).subscribe(teilerApps => {
       this.addTeilerCoreApps(teilerApps);

@@ -11,6 +11,7 @@ import {
 } from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
 import {AuthGuard} from "./security/guard/auth.guard";
 import {FunctionTestsComponent} from "./embedded/function-tests/function-tests.component";
+import {EventLogComponent} from "./embedded/event-log/event-log.component";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class RouteManagerService {
   embeddedTeilerAppNameComponentMap = new Map<string, any>([
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
     {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent},
-    {name: EmbeddedTeilerApps.FUNCTION_TESTS, component: FunctionTestsComponent}
+    {name: EmbeddedTeilerApps.FUNCTION_TESTS, component: FunctionTestsComponent},
+    {name: EmbeddedTeilerApps.EVENT_LOG, component: EventLogComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private route: Router) {

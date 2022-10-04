@@ -9,7 +9,8 @@ export enum TeilerRole {
 export enum EmbeddedTeilerApps {
   CONFIGURATION = 'config',
   QUALITY_REPORT = 'quality-report',
-  FUNCTION_TESTS = 'function-tests'
+  FUNCTION_TESTS = 'function-tests',
+  EVENT_LOG = 'event-log'
 }
 
 export interface TeilerApp {

@@ -5,7 +5,7 @@ import {DatePipe} from '@angular/common';
 import {data} from "./inhalttests";
 
 @Component({
-  selector: 'samply-function-tests',
+  selector: 'function-tests-app',
   templateUrl: './function-tests.component.html',
   styleUrls: ['./function-tests.component.css']
 })
