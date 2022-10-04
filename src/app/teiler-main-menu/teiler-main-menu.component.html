@@ -1,12 +1,33 @@
 <div class="content" role="main">
+
+  <div *ngIf="existLocalAndCentralTeilerAppsAtTheSameTime()">
+    <h2>Local Apps</h2>
+  </div>
   <div class="card-container">
     <div *ngFor="let teilerApp of teilerService.teilerApps">
-      <div *ngIf="!teilerApp.externLink">
+      <div *ngIf="!teilerApp.externLink && teilerApp.local">
         <a routerLink="{{'/'+teilerApp.routerLink}}">
           <teiler-box [teilerApp]="teilerApp"></teiler-box>
         </a>
       </div>
-      <div *ngIf="teilerApp.externLink">
+      <div *ngIf="teilerApp.externLink && teilerApp.local">
+        <a routerLink="{{'/'+teilerApp.routerLink}}" [externalLink]="teilerApp.sourceUrl??''">
+          <teiler-box [teilerApp]="teilerApp"></teiler-box>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="existLocalAndCentralTeilerAppsAtTheSameTime()">
+    <h2>Central Apps</h2>
+  </div>
+  <div class="card-container">
+    <div *ngFor="let teilerApp of teilerService.teilerApps">
+      <div *ngIf="!teilerApp.externLink && !teilerApp.local">
+        <a routerLink="{{'/'+teilerApp.routerLink}}">
+          <teiler-box [teilerApp]="teilerApp"></teiler-box>
+        </a>
+      </div>
+      <div *ngIf="teilerApp.externLink && !teilerApp.local">
         <a routerLink="{{'/'+teilerApp.routerLink}}" [externalLink]="teilerApp.sourceUrl??''">
           <teiler-box [teilerApp]="teilerApp"></teiler-box>
         </a>

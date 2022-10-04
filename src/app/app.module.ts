@@ -27,6 +27,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TeilerBoxComponent } from './teiler-box/teiler-box.component';
 import {MatCardModule} from "@angular/material/card";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
         ReactiveFormsModule,
         TeilerModule,
         MatCardModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatGridListModule
     ],
   providers: [
     {
