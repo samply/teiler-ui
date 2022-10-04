@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TeilerService} from "../teiler/teiler.service";
+import {TeilerAuthService} from "../security/teiler-auth.service";
+import {from} from "rxjs";
 
 
 @Component({
@@ -9,8 +11,10 @@ import {TeilerService} from "../teiler/teiler.service";
 })
 export class TeilerMainMenuComponent implements OnInit {
 
+  isLoggedIn: boolean = false;
 
-  constructor(public teilerService: TeilerService) {
+  constructor(public teilerService: TeilerService, authService: TeilerAuthService) {
+    from(authService.isLoggedId()).subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
   }
 
   ngOnInit(): void {

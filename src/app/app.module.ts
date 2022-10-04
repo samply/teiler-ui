@@ -28,6 +28,7 @@ import { TeilerBoxComponent } from './teiler-box/teiler-box.component';
 import {MatCardModule} from "@angular/material/card";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { TeilerWelcomeComponent } from './teiler-welcome/teiler-welcome.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     SidebarComponent,
     TeilerAppPluginOrchestratorComponent,
     ExternalLinkDirective,
-    TeilerBoxComponent
+    TeilerBoxComponent,
+    TeilerWelcomeComponent
   ],
     imports: [
         BrowserModule,

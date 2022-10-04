@@ -1,5 +1,8 @@
 <div class="content" role="main">
 
+  <div *ngIf="!isLoggedIn">
+    <teiler-welcome></teiler-welcome>
+  </div>
   <div *ngIf="existLocalAndCentralTeilerAppsAtTheSameTime()">
     <h2>Local Apps</h2>
   </div>
