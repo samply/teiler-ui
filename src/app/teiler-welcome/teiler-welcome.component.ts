@@ -8,13 +8,9 @@ class TeilerAdmin {
 
 
   constructor() {
-    //TODO
-    //this.name = environment.config.TEILER_ADMIN_NAME;
-    //this.email = environment.config.TEILER_ADMIN_EMAIL;
-    //this.phone = environment.config.TEILER_ADMIN_PHONE;
-    this.name = "Max Mustermann";
-    this.email = "max.mustermann@teiler-example.com";
-    this.phone = "+49 123 456789";
+    this.name = environment.config.TEILER_ADMIN_NAME;
+    this.email = environment.config.TEILER_ADMIN_EMAIL;
+    this.phone = environment.config.TEILER_ADMIN_PHONE;
   }
 }
 
@@ -26,9 +22,8 @@ class TeilerAdmin {
 export class TeilerWelcomeComponent implements OnInit {
 
   teilerAdmin: TeilerAdmin = new TeilerAdmin();
-  //TODO
-  //welcomeTitle: string = "Welcome to your " + environment.config.TEILER_PROJECT + "Bridgehead";
-  welcomeTitle: string = "Welcome to your DKTK Bridgehead";
+
+  welcomeTitle: string = "Welcome to your " + environment.config.TEILER_PROJECT + "Bridgehead";
   welcomeMessage: string = `
   You are on the entry page of the Bridgehead on site DKTK Brückenkopf.
   The Bridgehead is used to convert a site's data into a DKTK-compatible format and make it usable for the other components.

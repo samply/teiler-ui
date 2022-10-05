@@ -2,7 +2,7 @@
   window["env"] = window["env"] || {};
 
   // Environment variables
-  window["env"]["config"] = {
+  window["env"]["teiler"]["config"] = {
     "DEFAULT_LANGUAGE": "${DEFAULT_LANGUAGE}",
     "TEILER_CORE_URL": "${TEILER_CORE_URL}",
     "KEYCLOAK_URL": "${KEYCLOAK_URL}",

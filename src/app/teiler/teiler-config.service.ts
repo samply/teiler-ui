@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject} from "rxjs";
+import {environment} from "../../environments/environment";
 
 export interface ConfigVariable {
   variable: string;
@@ -31,9 +32,7 @@ export class TeilerConfigService {
   }
 
   getTeilerCoreConfigUrl() {
-    //TODO
-    //return environment.config.TEILER_CORE_URL + '/config;
-    return "http://localhost:8085/config";
+    return environment.config.TEILER_CORE_URL + '/config';
   }
 
 }

@@ -35,9 +35,7 @@ export class TeilerService {
   }
 
   getTeilerCoreAppsUrl() {
-    //TODO
-    //return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
-    return "http://localhost:8085/apps/de";
+    return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
   }
 
   filterTeilerApps() {

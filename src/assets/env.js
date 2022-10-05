@@ -2,7 +2,7 @@
   window["env"] = window["env"] || {};
 
   // Environment variables
-  window["env"]["config"] = {
+  window["env"]["teilerConfig"] = {
     "DEFAULT_LANGUAGE": "DE",
     "TEILER_CORE_URL": "http://localhost:8085",
     "KEYCLOAK_URL": "http://localhost:8180/auth",
