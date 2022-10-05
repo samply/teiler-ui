@@ -1,0 +1,11 @@
+{
+  "defaultLanguage": "DE",
+  "teilerCoreUrl": "http://localhost:8085",
+  "keycloakUrl": "http://localhost:8180/auth",
+  "keycloakRealm": "teiler-ui",
+  "keycloakClientId": "teiler-ui",
+  "teilerAdminName": "Max Mustermann",
+  "teilerAdminEmail": "max.mustermann@teiler-example.com",
+  "teilerAdminPhone": "+49 123 456789",
+  "teilerProject": "DKTK"
+}
