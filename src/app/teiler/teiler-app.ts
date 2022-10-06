@@ -58,8 +58,7 @@ export abstract class EmbeddedTeilerApp implements TeilerApp {
 
   constructor(name: string) {
     this.name = name;
-    //TODO:
-    this.routerLink = environment.config.DEFAULT_LANGUAGE.toLowerCase() + '/' + name;
+    this.routerLink = name;
   }
 
 }
