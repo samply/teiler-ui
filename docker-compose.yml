@@ -9,7 +9,17 @@ services:
 #    depends_on:
 #      - teiler-core
     ports:
-      - 8085:80
+      - 4200:80
+    environment:
+      DEFAULT_LANGUAGE: "DE"
+      TEILER_CORE_URL: "http://localhost:8085"
+      KEYCLOAK_URL: "http://localhost:8180/auth"
+      KEYCLOAK_REALM: "teiler-ui"
+      KEYCLOAK_CLIENT_ID: "teiler-ui"
+      TEILER_ADMIN_NAME: "Max Mustermann"
+      TEILER_ADMIN_EMAIL: "max.mustermann@teiler-example.com"
+      TEILER_ADMIN_PHONE: "+49 123 456789"
+      TEILER_PROJECT: "DKTK"
 
 #  teiler-core :
 #    image: teiler-core
