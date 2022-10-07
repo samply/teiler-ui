@@ -22,7 +22,7 @@
             "outputPath": "dist/teiler-ui",
             "index": "src/index.html",
             "main": "src/main.single-spa.ts",
-            "localize": ["de"],
+            "localize": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
