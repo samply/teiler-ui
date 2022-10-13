@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TeilerApp} from "../teiler/teiler-app";
 import {TeilerService} from "../teiler/teiler.service";
+import {Router} from "@angular/router";
+import {getMainRouterLinkFromRouter} from "../route-utils";
 
 @Component({
   selector: 'app-sidebar',
@@ -9,13 +11,15 @@ import {TeilerService} from "../teiler/teiler.service";
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(public teilerService: TeilerService) {}
+  constructor(public teilerService: TeilerService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
   isMainSite() {
-    return window.location.pathname == '/';
+    let mainRouterLink = getMainRouterLinkFromRouter(this.router);
+    return window.location.pathname === '/' + mainRouterLink;
   }
 
 }

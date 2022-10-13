@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {EmbeddedTeilerApp, EmbeddedTeilerApps, TeilerRole} from "./teiler-app";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class FunctionTestsService extends EmbeddedTeilerApp {
   title: string = "Tests";
   roles: TeilerRole[] = [TeilerRole.TEILER_ADMIN];
 
-  constructor() {
-    super(EmbeddedTeilerApps.FUNCTION_TESTS);
+  constructor(router: Router) {
+    super(EmbeddedTeilerApps.FUNCTION_TESTS, router);
   }
 
 }

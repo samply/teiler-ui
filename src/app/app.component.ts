@@ -16,7 +16,7 @@ export class AppComponent {
   user: string = '';
 
 
-  constructor(routeManagerService: RouteManagerService, public authService: TeilerAuthService) {
+  constructor(public routeManagerService: RouteManagerService, public authService: TeilerAuthService) {
     from(authService.isLoggedId()).subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
     from(authService.loadUserProfile()).subscribe(keycloakProfile => this.user = keycloakProfile.firstName + ' '+ keycloakProfile.lastName);
   }

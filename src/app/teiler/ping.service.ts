@@ -33,7 +33,7 @@ export class PingService {
     this.httpClient
       .get(url, {observe: 'response'})
       .pipe(first())
-      .subscribe(response => {setter(response.status == 200); console.log("url: "+url+" response: "+response.status)});
+      .subscribe(response => setter(response.status == 200));
   }
 
 }

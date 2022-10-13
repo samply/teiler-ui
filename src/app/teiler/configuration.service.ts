@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {EmbeddedTeilerApp, EmbeddedTeilerApps, TeilerRole} from "./teiler-app";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigurationService extends EmbeddedTeilerApp {
 
-  constructor() {
-    super(EmbeddedTeilerApps.CONFIGURATION);
+  constructor(router: Router) {
+    super(EmbeddedTeilerApps.CONFIGURATION, router);
   }
 
   description: string = "Configure teiler services";

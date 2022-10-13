@@ -1,7 +1,7 @@
 <!-- Toolbar -->
 
 <div class="toolbar" role="banner">
-  <a routerLink="/">
+  <a routerLink="{{'/' + routeManagerService.mainRouterLink}}">
     <img
       width="40"
       alt="DKTK Teiler"
@@ -17,10 +17,10 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div>
     <div *ngIf="!isLoggedIn">
-      <a routerLink="login"><span style="color:white">log in</span></a>
+      <a routerLink="{{'/' + routeManagerService.loginRouterLink}}"><span style="color:white">log in</span></a>
     </div>
     <div *ngIf="isLoggedIn">
-      <a routerLink="logout" (click)="authService.logout()"><span style="color:white">log out</span></a>
+      <a routerLink="{{'/' + routeManagerService.logoutRouterLink}}" (click)="authService.logout()"><span style="color:white">log out</span></a>
     </div>
   </div>
   &nbsp;&nbsp;&nbsp;

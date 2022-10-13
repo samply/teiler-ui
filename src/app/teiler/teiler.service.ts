@@ -8,6 +8,8 @@ import {TeilerAuthService} from "../security/teiler-auth.service";
 import {environment} from "../../environments/environment";
 import {FunctionTestsService} from "./function-tests.service";
 import {EventLogService} from "./event-log.service";
+import {Router} from "@angular/router";
+import {getLanguage} from "../route-utils";
 
 
 @Injectable()
@@ -20,28 +22,36 @@ export class TeilerService {
 
   constructor(
     private authService: TeilerAuthService,
-    httpClient: HttpClient,
+    private router: Router,
+    private httpClient: HttpClient,
     qualityReportService: QualityReportService,
     configurationService: ConfigurationService,
     functionTestsService: FunctionTestsService,
     eventLogService: EventLogService
   ) {
-    [qualityReportService, configurationService, functionTestsService, eventLogService].forEach(teilerApp => this.allTeilerApps.push(teilerApp));
-    this.filterTeilerApps();
-    httpClient.get<TeilerApp[]>(this.getTeilerCoreAppsUrl()).subscribe(teilerApps => {
+    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService];
+    this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)
+    router.events.subscribe(myEvent => this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps));
+  }
+
+  fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps: TeilerApp[]) {
+    this.httpClient.get<TeilerApp[]>(this.getTeilerCoreAppsUrl()).subscribe(teilerApps => {
+      this.allTeilerApps = [];
+      embeddedTeilerApps.forEach(teilerApp => this.allTeilerApps.push(teilerApp));
       this.addTeilerCoreApps(teilerApps);
+      this.sortTeilerApps();
       this.filterTeilerApps()
+      this.teilerAppBehaviorSubject.next(this.teilerApps);
     });
   }
 
   getTeilerCoreAppsUrl() {
-    return environment.config.TEILER_CORE_URL + '/apps/' + environment.config.DEFAULT_LANGUAGE.toLowerCase();
+    return environment.config.TEILER_CORE_URL + '/apps/' + getLanguage(this.router);
   }
 
   filterTeilerApps() {
     this.teilerApps = [];
     this.allTeilerApps.filter(teilerApp => this.isAuthorized(teilerApp)).forEach(teilerApp => this.teilerApps.push(teilerApp))
-    this.teilerAppBehaviorSubject.next(this.teilerApps);
   }
 
   isAuthorized(teilerApp: TeilerApp) {
@@ -75,8 +85,6 @@ export class TeilerService {
         this.allTeilerApps.push(teilerCoreApp);
       }
     });
-
-    this.sortTeilerApps();
 
   }
 

@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {KeycloakService} from "keycloak-angular";
 import {KeycloakProfile} from "keycloak-js";
-import {TeilerRole} from "../teiler/teiler-app";
 
 @Injectable({
   providedIn: 'root'

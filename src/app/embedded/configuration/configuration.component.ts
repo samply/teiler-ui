@@ -78,7 +78,6 @@ export class ConfigurationComponent implements AfterViewChecked {
   }
 
   updateConfigFileContentAndPrepareForDownload() {
-    console.log("updating config file content...");
     this.updateConfigFileUrl();
     this.downloadNow = true;
   }

@@ -12,11 +12,16 @@ import {
 import {AuthGuard} from "./security/guard/auth.guard";
 import {FunctionTestsComponent} from "./embedded/function-tests/function-tests.component";
 import {EventLogComponent} from "./embedded/event-log/event-log.component";
+import {getLoginRouterLinkFromRouter, getLogoutRouterLinkFromRouter, getMainRouterLinkFromRouter} from "./route-utils";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteManagerService {
+
+  public mainRouterLink: string = '';
+  public loginRouterLink: string = 'login';
+  public logoutRouterLink: string = 'logout';
 
   embeddedTeilerAppNameComponentMap = new Map<string, any>([
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
@@ -25,20 +30,29 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.EVENT_LOG, component: EventLogComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
-  constructor(teilerService: TeilerService, private route: Router) {
-    teilerService.followTeilerApps().subscribe(teilerApps => this.route.resetConfig(this.fetchRoutes(teilerApps)));
+  constructor(teilerService: TeilerService, private router: Router) {
+    teilerService.followTeilerApps().subscribe(teilerApps => {
+      this.router.resetConfig(this.fetchRoutes(teilerApps));
+
+      this.mainRouterLink = getMainRouterLinkFromRouter(this.router);
+      this.loginRouterLink = getLoginRouterLinkFromRouter(this.router);
+      this.logoutRouterLink = getLogoutRouterLinkFromRouter(this.router);
+    });
+  }
+
+  getTeilerAppsNames(teilerApps: TeilerApp[]): string[] {
+    let teilerAppsNames: string[] = [];
+    teilerApps.forEach(teilerApp => teilerAppsNames.push(teilerApp.name));
+    return teilerAppsNames;
   }
 
   private fetchRoutes(teilerApps: TeilerApp[]) {
-
-    console.log("adding routes " + teilerApps.length);
     let routes: Route[] = [];
-    RouteManagerService.addFirstRoutes(routes);
+    RouteManagerService.addFirstRoutesWithLanguage(routes, this.router);
     teilerApps.filter(teilerApp => teilerApp.activated && !teilerApp.externLink).forEach(teilerApp => this.addTeilerAppToRoutes(teilerApp, routes));
     RouteManagerService.addFinalRoutes(routes);
 
     return routes;
-
   }
 
   private addTeilerAppToRoutes(teilerApp: TeilerApp, routes: Route[]) {
@@ -60,10 +74,19 @@ export class RouteManagerService {
   }
 
   private static addFirstRoutes(routes: Route[]) {
-    routes.push({path: '', component: TeilerMainMenuComponent});
-    routes.push({path: 'login', component: TeilerMainMenuComponent, canActivate: [AuthGuard]});
-    routes.push({path: 'logout', component: TeilerMainMenuComponent});
+    this.addFirstRoutesWithLanguage(routes);
   }
+
+  private static addFirstRoutesWithLanguage(routes: Route[], router?: Router) {
+    routes.push({path: getMainRouterLinkFromRouter(router), component: TeilerMainMenuComponent});
+    routes.push({
+      path: getLoginRouterLinkFromRouter(router),
+      component: TeilerMainMenuComponent,
+      canActivate: [AuthGuard]
+    });
+    routes.push({path: getLogoutRouterLinkFromRouter(router), component: TeilerMainMenuComponent});
+  }
+
 
   private static addFinalRoutes(routes: Route[]) {
     routes.push({path: '**', component: EmptyRouteComponent});
@@ -77,6 +100,5 @@ export class RouteManagerService {
 
     return routes;
   }
-
 
 }
