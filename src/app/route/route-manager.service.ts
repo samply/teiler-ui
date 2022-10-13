@@ -1,27 +1,33 @@
 import {Injectable} from '@angular/core';
-import {TeilerService} from "./teiler/teiler.service";
-import {EmbeddedTeilerApps, TeilerApp, TeilerRole} from "./teiler/teiler-app";
-import {ConfigurationComponent} from "./embedded/configuration/configuration.component";
-import {QualityReportComponent} from "./embedded/quality-report/quality-report.component";
+import {TeilerService} from "../teiler/teiler.service";
+import {EmbeddedTeilerApps, TeilerApp, TeilerRole} from "../teiler/teiler-app";
+import {ConfigurationComponent} from "../embedded/configuration/configuration.component";
+import {QualityReportComponent} from "../embedded/quality-report/quality-report.component";
 import {Route, Router} from "@angular/router";
-import {TeilerMainMenuComponent} from "./teiler-main-menu/teiler-main-menu.component";
-import {EmptyRouteComponent} from "./empty-route/empty-route.component";
+import {TeilerMainMenuComponent} from "../teiler-main-menu/teiler-main-menu.component";
+import {EmptyRouteComponent} from "../empty-route/empty-route.component";
 import {
   TeilerAppPluginOrchestratorComponent
-} from "./teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
-import {AuthGuard} from "./security/guard/auth.guard";
-import {FunctionTestsComponent} from "./embedded/function-tests/function-tests.component";
-import {EventLogComponent} from "./embedded/event-log/event-log.component";
-import {getLoginRouterLinkFromRouter, getLogoutRouterLinkFromRouter, getMainRouterLinkFromRouter} from "./route-utils";
+} from "../teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
+import {AuthGuard} from "../security/guard/auth.guard";
+import {FunctionTestsComponent} from "../embedded/function-tests/function-tests.component";
+import {EventLogComponent} from "../embedded/event-log/event-log.component";
+import {
+  BASE_LOGIN_ROUTER_LINK, BASE_LOGOUT_ROUTER_LINK,
+  BASE_MAIN_ROUTER_LINK,
+  createLoginRouterLink,
+  createLogoutRouterLink,
+  createMainRouterLink
+} from "./route-utils";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteManagerService {
 
-  public mainRouterLink: string = '';
-  public loginRouterLink: string = 'login';
-  public logoutRouterLink: string = 'logout';
+  public mainRouterLink: string = BASE_MAIN_ROUTER_LINK;
+  public loginRouterLink: string = BASE_LOGIN_ROUTER_LINK;
+  public logoutRouterLink: string = BASE_LOGOUT_ROUTER_LINK;
 
   embeddedTeilerAppNameComponentMap = new Map<string, any>([
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
@@ -34,9 +40,9 @@ export class RouteManagerService {
     teilerService.followTeilerApps().subscribe(teilerApps => {
       this.router.resetConfig(this.fetchRoutes(teilerApps));
 
-      this.mainRouterLink = getMainRouterLinkFromRouter(this.router);
-      this.loginRouterLink = getLoginRouterLinkFromRouter(this.router);
-      this.logoutRouterLink = getLogoutRouterLinkFromRouter(this.router);
+      this.mainRouterLink = createMainRouterLink(this.router);
+      this.loginRouterLink = createLoginRouterLink(this.router);
+      this.logoutRouterLink = createLogoutRouterLink(this.router);
     });
   }
 
@@ -78,13 +84,13 @@ export class RouteManagerService {
   }
 
   private static addFirstRoutesWithLanguage(routes: Route[], router?: Router) {
-    routes.push({path: getMainRouterLinkFromRouter(router), component: TeilerMainMenuComponent});
+    routes.push({path: createMainRouterLink(router), component: TeilerMainMenuComponent});
     routes.push({
-      path: getLoginRouterLinkFromRouter(router),
+      path: createLoginRouterLink(router),
       component: TeilerMainMenuComponent,
       canActivate: [AuthGuard]
     });
-    routes.push({path: getLogoutRouterLinkFromRouter(router), component: TeilerMainMenuComponent});
+    routes.push({path: createLogoutRouterLink(router), component: TeilerMainMenuComponent});
   }
 
 

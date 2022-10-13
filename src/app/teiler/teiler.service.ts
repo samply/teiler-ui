@@ -9,7 +9,7 @@ import {environment} from "../../environments/environment";
 import {FunctionTestsService} from "./function-tests.service";
 import {EventLogService} from "./event-log.service";
 import {Router} from "@angular/router";
-import {getLanguage} from "../route-utils";
+import {getLocale} from "../route/route-utils";
 
 
 @Injectable()
@@ -46,7 +46,7 @@ export class TeilerService {
   }
 
   getTeilerCoreAppsUrl() {
-    return environment.config.TEILER_CORE_URL + '/apps/' + getLanguage(this.router);
+    return environment.config.TEILER_CORE_URL + '/apps/' + getLocale(this.router);
   }
 
   filterTeilerApps() {

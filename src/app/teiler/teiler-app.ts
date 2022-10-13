@@ -1,6 +1,6 @@
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
-import {getRouterLink} from "../route-utils";
+import {createRouterLinkForBase} from "../route/route-utils";
 
 export enum TeilerRole {
   TEILER_PUBLIC = 'TEILER_PUBLIC',
@@ -60,8 +60,8 @@ export abstract class EmbeddedTeilerApp implements TeilerApp {
 
   constructor(name: string, router: Router) {
     this.name = name;
-    this.routerLink = getRouterLink(router, name);
-    router.events.subscribe(routerEvent => this.routerLink = getRouterLink(router, name));
+    this.routerLink = createRouterLinkForBase(router, name);
+    router.events.subscribe(routerEvent => this.routerLink = createRouterLinkForBase(router, name));
   }
 
 }

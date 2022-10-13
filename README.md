@@ -33,3 +33,6 @@ docker run teiler-ui -p 8085:80
 # Docker-compose
 docker-compose build
 docker-compose up
+
+# Deploy Development for default language
+ng serve --configuration=development

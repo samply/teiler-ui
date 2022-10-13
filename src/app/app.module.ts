@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 
-import {AppRoutingModule, routingComponents} from './app-routing.module';
+import {AppRoutingModule, routingComponents} from './route/app-routing.module';
 import {AppComponent} from './app.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from "@angular/material/list";
@@ -33,6 +33,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -44,33 +46,34 @@ import {MatExpansionModule} from "@angular/material/expansion";
     TeilerBoxComponent,
     TeilerWelcomeComponent
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    FlexLayoutModule,
-    FormsModule,
-    HttpClientModule,
-    KeycloakAngularModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatToolbarModule,
-    NoopAnimationsModule,
-    ParcelModule,
-    ReactiveFormsModule,
-    TeilerModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        FlexLayoutModule,
+        FormsModule,
+        HttpClientModule,
+        KeycloakAngularModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDividerModule,
+        MatExpansionModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatSelectModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatToolbarModule,
+        NoopAnimationsModule,
+        ParcelModule,
+        ReactiveFormsModule,
+        TeilerModule,
+        MatMenuModule
+    ],
   providers: [
     {
       provide: APP_INITIALIZER,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouteManagerService} from "./route-manager.service";
+import {RouteManagerService} from "./route/route-manager.service";
 import {TeilerAuthService} from "./security/teiler-auth.service";
 import {from} from "rxjs";
 

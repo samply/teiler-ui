@@ -1,0 +1,10 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <i class="bi bi-translate"></i>
+</button>
+<mat-menu #menu="matMenu">
+  <div *ngFor="let languageHref of getAvailableLanguageHrefs()">
+    <a routerLink="/external" [externalLink]="languageHref.href">
+        <span>{{languageHref.language}}</span>
+    </a>
+  </div>
+</mat-menu>

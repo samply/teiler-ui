@@ -11,7 +11,8 @@
   <span i18n>Teiler</span>
   <div class="spacer"></div>
 
-  <div>
+  <div *ngIf="user != undefined && user.length > 0">
+    <i class="bi bi-person"></i>&nbsp;
     <span style="color:white">{{user}}</span>
   </div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -25,7 +26,7 @@
   </div>
   &nbsp;&nbsp;&nbsp;
   <div>
-    <span>DE</span>
+    <language-selector></language-selector>
   </div>
   &nbsp;&nbsp;&nbsp;
 </div>
