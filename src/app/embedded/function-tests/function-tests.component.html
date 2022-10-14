@@ -1,8 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="main" style="position: center">
   <div class="title">
     <h2>Funktionstest</h2>
   </div>
-  <div class ="over">
+  <div class="over">
     <hr>
   </div>
   <div class="zero">
@@ -16,13 +17,14 @@
                            (opened)="panelOpenState = true" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <br>Sendet einen HTTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar ist.
+            <br>Sendet einen HTTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar
+            ist.
           </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
 
         </mat-expansion-panel-header>
 
-        <div *ngIf="panelOpenState">
+        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgrey;">
           {{todayWithPipe}}
           <div class="inhalt" *ngFor="let data of data">
             <p>
@@ -43,12 +45,13 @@
                            (closed)="panelOpenState = false" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <br>Sendet einen einfachen Testpatienten Datensatz zur zentralen MDS Datenbank hoch und löscht diesen anschließend wieder.
+            <br>Sendet einen einfachen Testpatienten Datensatz zur zentralen MDS Datenbank hoch und löscht diesen
+            anschließend wieder.
           </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
 
         </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState">
+        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
           {{todayWithPipe}}
           <div class="inhalt" *ngFor="let data of data">
             <p>
@@ -84,9 +87,9 @@
           <mat-panel-title>
             Sendet einen HTTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar ist.
           </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
         </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState">
+        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
           {{todayWithPipe}}
           <div class="inhalt" *ngFor="let data of data">
             <p>
@@ -102,22 +105,26 @@
       </mat-expansion-panel>
       <br>
       <mat-card>Export ID anfordern</mat-card>
+      <mat-card class="extra">Holt ein Exportpseudonym für eine gegebene DKTK-Standort ID ab. Die zu pr&uuml;fende ID
+        bitte nachfolgend angeben.
+      </mat-card>
 
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Holt ein Exportpseudonym für eine gegebene DKTK-Standort ID ab. Die zu pr&uuml;fende ID bitte nachfolgend angeben.
+            Holt ein Exportpseudonym für eine gegebene DKTK-Standort ID ab. Die zu pr&uuml;fende ID bitte nachfolgend
+            angeben.
             <br>
             DKTK-Standort ID:
             <mat-form-field>
               <input matInput>
             </mat-form-field>
           </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
 
         </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState">
+        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
           {{todayWithPipe}}
           <div class="inhalt" *ngFor="let data of data">
             <div class="icons">
@@ -139,16 +146,19 @@
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false" hideToggle>
         <mat-expansion-panel-header>
-          <mat-panel-title>Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar ist.
+          <mat-panel-title>Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst
+            erreichbar ist.
           </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
         </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState">
+        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
           {{todayWithPipe}}
           <div class="inhalt" *ngFor="let data of data">
-            {{data.inhalt10}}
-            <br>
-            {{data.inhalt11}}
+            <p>
+              {{data.inhalt10}}
+              <br>
+              {{data.inhalt11}}
+            </p>
             <div class="icons">
               <i class={{data.icon5}}></i>
             </div>
@@ -170,17 +180,20 @@
                              (closed)="panelOpenState = false" hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar ist.
+              Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar
+              ist.
             </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
 
           </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState">
+          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
             {{todayWithPipe}}
             <div class="inhalt" *ngFor="let data of data">
-              {{data.inhalt12}}
-              <br>
-              {{data.inhalt3}}
+              <p>
+                {{data.inhalt12}}
+                <br>
+                {{data.inhalt3}}
+              </p>
               <div class="icons">
                 <i class={{data.icon6}}></i>
               </div>
@@ -195,20 +208,22 @@
             <mat-panel-title>
               L&auml;dt eine einfache, vom Suchbrokergenerierte, Testanfrage herunter.
             </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
           </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState">
+          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
             {{todayWithPipe}}
             <div class="inhalt" *ngFor="let data of data">
-              {{data.inhalt14}}
-              <br>
-              {{data.inhalt15}}
-              <br>
-              {{data.inhalt16}}
-              <br>
-              {{data.inhalt17}}
-              <br>
-              {{data.inhalt18}}
+              <p>
+                {{data.inhalt14}}
+                <br>
+                {{data.inhalt15}}
+                <br>
+                {{data.inhalt16}}
+                <br>
+                {{data.inhalt17}}
+                <br>
+                {{data.inhalt18}}
+              </p>
               <div class="icons">
                 <i class={{data.icon7}}></i>
               </div>
@@ -221,23 +236,26 @@
                              (closed)="panelOpenState = false" hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              L&auml;dt eine einfache, vom Suchbroker generierte Testanfrage herunter und schickt diese an das lokale Datenmanaement.
+              L&auml;dt eine einfache, vom Suchbroker generierte Testanfrage herunter und schickt diese an das lokale
+              Datenmanaement.
             </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf() >Pr&uuml;fen</button>
+            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
 
           </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState">
+          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
             {{todayWithPipe}}
             <div class="inhalt" *ngFor="let data of data">
-              {{data.inhalt19}}
-              <br>
-              {{data.inhalt20}}
-              <br>
-              {{data.inhalt21}}
-              <br>
-              {{data.inhalt22}}
-              <br>
-              {{data.inhalt23}}
+              <p>
+                {{data.inhalt19}}
+                <br>
+                {{data.inhalt20}}
+                <br>
+                {{data.inhalt21}}
+                <br>
+                {{data.inhalt22}}
+                <br>
+                {{data.inhalt23}}
+              </p>
               <div class="icons">
                 <i class={{data.icon8}}></i>
               </div>
