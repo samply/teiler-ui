@@ -54,9 +54,9 @@ export class RouteManagerService {
 
   private fetchRoutes(teilerApps: TeilerApp[]) {
     let routes: Route[] = [];
-    RouteManagerService.addFirstRoutesWithLanguage(routes, this.router);
+    RouteManagerService.addFirstRoutes(routes, this.router);
     teilerApps.filter(teilerApp => teilerApp.activated && !teilerApp.externLink).forEach(teilerApp => this.addTeilerAppToRoutes(teilerApp, routes));
-    RouteManagerService.addFinalRoutes(routes);
+    RouteManagerService.addFinalRoutes(routes, this.router);
 
     return routes;
   }
@@ -79,11 +79,7 @@ export class RouteManagerService {
 
   }
 
-  private static addFirstRoutes(routes: Route[]) {
-    this.addFirstRoutesWithLanguage(routes);
-  }
-
-  private static addFirstRoutesWithLanguage(routes: Route[], router?: Router) {
+  private static addFirstRoutes(routes: Route[], router?: Router) {
     routes.push({path: createMainRouterLink(router), component: TeilerMainMenuComponent});
     routes.push({
       path: createLoginRouterLink(router),
@@ -94,8 +90,8 @@ export class RouteManagerService {
   }
 
 
-  private static addFinalRoutes(routes: Route[]) {
-    routes.push({path: '**', component: EmptyRouteComponent});
+  private static addFinalRoutes(routes: Route[], router?: Router) {
+    routes.push({path: '**', redirectTo: createMainRouterLink(router) });
   }
 
   public static fetchBasicRoutes() {
