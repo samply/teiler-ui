@@ -19,6 +19,7 @@ import {
   createLogoutRouterLink,
   createMainRouterLink
 } from "./route-utils";
+import {UploadsComponent} from "../embedded/uploads/uploads.component";
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,8 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.CONFIGURATION, component: ConfigurationComponent},
     {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent},
     {name: EmbeddedTeilerApps.FUNCTION_TESTS, component: FunctionTestsComponent},
-    {name: EmbeddedTeilerApps.EVENT_LOG, component: EventLogComponent}
+    {name: EmbeddedTeilerApps.EVENT_LOG, component: EventLogComponent},
+    {name: EmbeddedTeilerApps.UPLOADS, component: UploadsComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private router: Router) {

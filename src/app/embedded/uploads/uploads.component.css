@@ -1,0 +1,109 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css");
+
+html{
+  min-height: fit-content;
+  min-width: fit-content;
+  height: 80%;
+}
+header{
+  background-color: blue;
+  padding: 0.05%;
+
+}
+.title{
+  margin-left:auto;
+  margin-right:auto;
+}
+.main{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.over{
+  width: 70%;
+  margin-left: 12.5%;
+  margin-right: 10%;
+  color: #fcfcfc;
+  margin-top: 1%;
+}
+h1{
+  color: white;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 28px;
+  margin-left: 20%;
+}
+h2{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 36px;
+  margin-left: 12.5%;
+  margin-top: 1.5%;
+}
+h3{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 28px;
+  margin-left: 12.5%;
+  margin-top: 1.5%;
+}
+.search{
+  font-family: Segoe Ui, serif;
+  color:dimgrey;
+  font-size: 16px;
+  margin-left: 12.5%;
+  margin-top: 0.5%;
+}
+.matinput{
+  margin-left: 60.5%;
+}
+
+.firstoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.secondoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.thirdoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+mat-expansion-panel {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.downloadandselector {
+  flex-direction: column;
+  margin-left: 12.5%;
+  padding-right: 10px;
+}
+
+.choose_how_many {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+table{
+  text-align: left;
+  width: 70%;
+  color: dimgrey;
+  margin-left: 12.5%;
+  margin-top: 2%;
+}
+
+LogAndTable {
+  position: center;
+}
+mat-paginator{
+  margin-top: 1%;
+  margin-right: 17%;
+}

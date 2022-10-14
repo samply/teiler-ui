@@ -10,6 +10,7 @@ import {FunctionTestsService} from "./function-tests.service";
 import {EventLogService} from "./event-log.service";
 import {Router} from "@angular/router";
 import {getLocale} from "../route/route-utils";
+import {UploadsService} from "./uploads.service";
 
 
 @Injectable()
@@ -27,9 +28,10 @@ export class TeilerService {
     qualityReportService: QualityReportService,
     configurationService: ConfigurationService,
     functionTestsService: FunctionTestsService,
-    eventLogService: EventLogService
+    eventLogService: EventLogService,
+    uploadsService: UploadsService
   ) {
-    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService];
+    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService];
     this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)
     router.events.subscribe(myEvent => this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps));
   }

@@ -12,7 +12,8 @@ export enum EmbeddedTeilerApps {
   CONFIGURATION = 'config',
   QUALITY_REPORT = 'quality-report',
   FUNCTION_TESTS = 'function-tests',
-  EVENT_LOG = 'event-log'
+  EVENT_LOG = 'event-log',
+  UPLOADS = 'uploads'
 }
 
 export interface TeilerApp {

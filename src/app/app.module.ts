@@ -33,7 +33,6 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatExpansionModule} from "@angular/material/expansion";
-import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({

@@ -13,6 +13,7 @@ import {
 } from "../teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
 import {EventLogComponent} from "../embedded/event-log/event-log.component";
 import {LanguageSelectorComponent} from "../language-selector/language-selector.component";
+import {UploadsComponent} from "../embedded/uploads/uploads.component";
 
 
 export const routingComponents = [
@@ -22,6 +23,7 @@ export const routingComponents = [
   FunctionTestsComponent,
   ConfigurationComponent,
   EventLogComponent,
+  UploadsComponent,
   LanguageSelectorComponent,
   TeilerAppPluginOrchestratorComponent
 ]
