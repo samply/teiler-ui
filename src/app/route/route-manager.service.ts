@@ -5,7 +5,6 @@ import {ConfigurationComponent} from "../embedded/configuration/configuration.co
 import {QualityReportComponent} from "../embedded/quality-report/quality-report.component";
 import {Route, Router} from "@angular/router";
 import {TeilerMainMenuComponent} from "../teiler-main-menu/teiler-main-menu.component";
-import {EmptyRouteComponent} from "../empty-route/empty-route.component";
 import {
   TeilerAppPluginOrchestratorComponent
 } from "../teiler-app-plugin-orchestrator/teiler-app-plugin-orchestrator.component";
@@ -13,13 +12,17 @@ import {AuthGuard} from "../security/guard/auth.guard";
 import {FunctionTestsComponent} from "../embedded/function-tests/function-tests.component";
 import {EventLogComponent} from "../embedded/event-log/event-log.component";
 import {
-  BASE_LOGIN_ROUTER_LINK, BASE_LOGOUT_ROUTER_LINK,
+  BASE_LOGIN_ROUTER_LINK,
+  BASE_LOGOUT_ROUTER_LINK,
   BASE_MAIN_ROUTER_LINK,
   createLoginRouterLink,
   createLogoutRouterLink,
   createMainRouterLink
 } from "./route-utils";
 import {UploadsComponent} from "../embedded/uploads/uploads.component";
+import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.component";
+import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
+import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +38,10 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.QUALITY_REPORT, component: QualityReportComponent},
     {name: EmbeddedTeilerApps.FUNCTION_TESTS, component: FunctionTestsComponent},
     {name: EmbeddedTeilerApps.EVENT_LOG, component: EventLogComponent},
-    {name: EmbeddedTeilerApps.UPLOADS, component: UploadsComponent}
+    {name: EmbeddedTeilerApps.UPLOADS, component: UploadsComponent},
+    {name: EmbeddedTeilerApps.ACTIVE_INQUIRIES, component: ActiveInquiriesComponent},
+    {name: EmbeddedTeilerApps.ARCHIVED_INQUIRIES, component: ArchivedInquiriesComponent},
+    {name: EmbeddedTeilerApps.FAILED_INQUIRIES, component: FailedInquiriesComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private router: Router) {
@@ -93,7 +99,7 @@ export class RouteManagerService {
 
 
   private static addFinalRoutes(routes: Route[], router?: Router) {
-    routes.push({path: '**', redirectTo: createMainRouterLink(router) });
+    routes.push({path: '**', redirectTo: createMainRouterLink(router)});
   }
 
   public static fetchBasicRoutes() {

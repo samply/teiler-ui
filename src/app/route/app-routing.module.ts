@@ -14,6 +14,10 @@ import {
 import {EventLogComponent} from "../embedded/event-log/event-log.component";
 import {LanguageSelectorComponent} from "../language-selector/language-selector.component";
 import {UploadsComponent} from "../embedded/uploads/uploads.component";
+import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.component";
+import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
+import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
+
 
 
 export const routingComponents = [
@@ -24,6 +28,9 @@ export const routingComponents = [
   ConfigurationComponent,
   EventLogComponent,
   UploadsComponent,
+  ActiveInquiriesComponent,
+  ArchivedInquiriesComponent,
+  FailedInquiriesComponent,
   LanguageSelectorComponent,
   TeilerAppPluginOrchestratorComponent
 ]

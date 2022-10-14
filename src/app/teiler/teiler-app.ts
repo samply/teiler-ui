@@ -1,4 +1,3 @@
-import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 import {createRouterLinkForBase} from "../route/route-utils";
 
@@ -13,7 +12,10 @@ export enum EmbeddedTeilerApps {
   QUALITY_REPORT = 'quality-report',
   FUNCTION_TESTS = 'function-tests',
   EVENT_LOG = 'event-log',
-  UPLOADS = 'uploads'
+  UPLOADS = 'uploads',
+  ACTIVE_INQUIRIES = 'active-inquiries',
+  ARCHIVED_INQUIRIES = 'archived-inquiries',
+  FAILED_INQUIRIES = 'failed-inquiries'
 }
 
 export interface TeilerApp {

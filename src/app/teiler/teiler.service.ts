@@ -11,6 +11,10 @@ import {EventLogService} from "./event-log.service";
 import {Router} from "@angular/router";
 import {getLocale} from "../route/route-utils";
 import {UploadsService} from "./uploads.service";
+import {ActiveInquiriesService} from "./active-inquiries.service";
+import {ArchivedInquiriesService} from "./archived-inquiries.service";
+import {FailedInquiriesService} from "./failed-inquiries.service";
+
 
 
 @Injectable()
@@ -29,9 +33,12 @@ export class TeilerService {
     configurationService: ConfigurationService,
     functionTestsService: FunctionTestsService,
     eventLogService: EventLogService,
-    uploadsService: UploadsService
+    uploadsService: UploadsService,
+    newInquiriesService: ActiveInquiriesService,
+    archivedInquiriesService: ArchivedInquiriesService,
+    failedInquiriesService: FailedInquiriesService
   ) {
-    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService];
+    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService, newInquiriesService, archivedInquiriesService, failedInquiriesService];
     this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)
     router.events.subscribe(myEvent => this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps));
   }

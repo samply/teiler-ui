@@ -7,6 +7,9 @@ import {TeilerConfigService} from "./teiler-config.service";
 import {FunctionTestsService} from "./function-tests.service";
 import {EventLogService} from "./event-log.service";
 import {UploadsService} from "./uploads.service";
+import {ActiveInquiriesService} from "./active-inquiries.service";
+import {FailedInquiriesService} from "./failed-inquiries.service";
+import {ArchivedInquiriesService} from "./archived-inquiries.service";
 
 
 @NgModule({
@@ -15,7 +18,7 @@ import {UploadsService} from "./uploads.service";
     CommonModule
   ],
   exports: [],
-  providers: [ConfigurationService, QualityReportService, FunctionTestsService, EventLogService, TeilerService, TeilerConfigService, UploadsService]
+  providers: [ConfigurationService, QualityReportService, FunctionTestsService, EventLogService, TeilerService, TeilerConfigService, UploadsService, ActiveInquiriesService, FailedInquiriesService, ArchivedInquiriesService]
 })
 export class TeilerModule {
 }
