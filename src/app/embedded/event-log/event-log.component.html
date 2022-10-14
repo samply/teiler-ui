@@ -1,33 +1,55 @@
-<div class="wholetable">
-  <div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef> Timestamp </th>
-        <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="message">
-        <th mat-header-cell *matHeaderCellDef> Message </th>
-        <td mat-cell *matCellDef="let element"> {{element.message}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    </table>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="main">
+  <div class="title">
+    <h2>Log</h2>
   </div>
-  <div>
-    <mat-paginator
-      [length]="100"
-      [pageSize]="10"
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      aria-label="Select page">
-    </mat-paginator>
+  <div class="over">
+    <hr>
+  </div>
+  <div class="search">
+    <p>Einträge Anzeigen: </p>
+    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;">
+      <option value="10" selected>10</option>
+      <option value="25" selected>25</option>
+      <option value="50" selected>50</option>
+      <option value="100" selected>100</option>
+    </select>
+    <label class="matinput">
+      Suche:
+      <input matInput style="border:0.5px solid">
+    </label>
+  </div>
+  <div class="wholetable">
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="timestamp">
+          <th mat-header-cell *matHeaderCellDef> Timestamp</th>
+          <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Message</th>
+          <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+    <div>
+      <mat-paginator
+        [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+      </mat-paginator>
+    </div>
   </div>
 </div>
