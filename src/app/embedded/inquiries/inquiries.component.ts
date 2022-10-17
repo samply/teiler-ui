@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-export enum InquiriesTableItemElement {
+export enum InquiriesTableItemColumn {
   NAME = 'Name',
   LOOKING_FOR = 'Looking for',
   RECEIVED_AT = 'Received at',
@@ -10,33 +10,15 @@ export enum InquiriesTableItemElement {
   ERROR_CODE = 'Error Code'
 }
 
-
-const elementFunctionMap = new Map<InquiriesTableItemElement, (item: InquiriesTableItem) => string>([
-  [InquiriesTableItemElement.NAME, item => item.name],
-  [InquiriesTableItemElement.LOOKING_FOR, item => item.lookingFor],
-  [InquiriesTableItemElement.RECEIVED_AT, item => item.receivedAt],
-  [InquiriesTableItemElement.ARCHIVED_AT, item => item.archivedAt],
-  [InquiriesTableItemElement.MATCHING_DATASETS, item => item.matchingDatasets],
-  [InquiriesTableItemElement.AS_OF, item => item.asOf],
-  [InquiriesTableItemElement.ERROR_CODE, item => item.errorCode]
-])
-
-export function getElementOfInquiriesTableItem(item: InquiriesTableItem, element: InquiriesTableItemElement): string {
-  // @ts-ignore
-  let getElement: (item: InquiriesTableItem) => string = this.elementFunctionMap.get(element);
-  return getElement(item);
-}
-
-
 export interface InquiriesTableItem {
-  inquiryId: string;
+  inquiryId: number;
   name: string;
   lookingFor: string;
   receivedAt: string;
-  archivedAt: string;
-  matchingDatasets: string;
-  asOf: string;
-  errorCode: string;
+  archivedAt?: string;
+  matchingDatasets?: string;
+  asOf?: string;
+  errorCode?: string;
 }
 
 @Component({
@@ -53,6 +35,26 @@ export abstract class InquiriesComponent implements OnInit {
   }
 
   abstract fetchInquiriesTableItems(): InquiriesTableItem[];
-  abstract getInquiriesTableItemElementToDisplay(): InquiriesTableItemElement[];
+  abstract getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[];
+  abstract getTitel(): string;
+
+  inquiriesTableItemColumn: typeof InquiriesTableItemColumn = InquiriesTableItemColumn;
+
+
+  private columnGetterMap = new Map<InquiriesTableItemColumn, (item: InquiriesTableItem) => string | undefined>([
+    [InquiriesTableItemColumn.NAME, item => item.name],
+    [InquiriesTableItemColumn.LOOKING_FOR, item => item.lookingFor],
+    [InquiriesTableItemColumn.RECEIVED_AT, item => item.receivedAt],
+    [InquiriesTableItemColumn.ARCHIVED_AT, item => item.archivedAt],
+    [InquiriesTableItemColumn.MATCHING_DATASETS, item => item.matchingDatasets],
+    [InquiriesTableItemColumn.AS_OF, item => item.asOf],
+    [InquiriesTableItemColumn.ERROR_CODE, item => item.errorCode]
+  ])
+
+  getInquiriesTableItemColumn(item: InquiriesTableItem, column: InquiriesTableItemColumn): string | undefined {
+    // @ts-ignore
+    let getter: (item: InquiriesTableItem) => string = this.columnGetterMap.get(column);
+    return getter(item);
+  }
 
 }

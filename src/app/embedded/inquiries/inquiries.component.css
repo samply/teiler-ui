@@ -1,0 +1,146 @@
+html{
+  min-height: fit-content;
+  min-width: fit-content;
+  height: 80%;
+}
+header{
+  background-color: blue;
+  padding: 0.05%;
+}
+.main{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.over{
+  width: 70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #fcfcfc;
+}
+
+h1{
+  color: white;
+  text-align: left;
+  font-family: Segoe Ui, serif;
+  font-size: 28px;
+  margin-left: 18%;
+}
+
+h2{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  color:dimgrey;
+  font-size: 32px;
+  margin-left: 10%;
+  margin-top: 1.5%;
+}
+
+.search{
+  font-family: Segoe Ui, serif;
+  color:dimgrey;
+  font-size: 16px;
+  margin-left: 10%;
+  margin-top: 0.5%;
+}
+
+.matinput{
+  margin-left: 52.5%;
+}
+
+
+/*
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  letter-spacing: 0px;
+  word-spacing: -5px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
+
+}
+*/
+
+mat-form-field {
+  margin-left:1500px;
+}
+
+LogAndTable {
+  position: center;
+}
+
+.line {
+  border-right: 100px solid transparent;
+}
+
+
+.firstoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.secondoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.thirdoption {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+mat-expansion-panel {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.downloadandselector {
+  flex-direction: column;
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.choose_how_many {
+  margin-left: 0%;
+  padding-right: 10px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.searchbar {
+  margin-left: 84%;
+}
+
+table {
+  width: 80%;
+  border-left: 30px;
+}
+
+.wholetable {
+  border-left: 100px solid transparent;
+  border-top: 20px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+
+
+.LogAndTable {
+  position: center;
+}

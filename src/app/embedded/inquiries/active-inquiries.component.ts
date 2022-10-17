@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {InquiriesComponent, InquiriesTableItem, InquiriesTableItemElement} from "./inquiries.component";
+import {InquiriesComponent, InquiriesTableItem, InquiriesTableItemColumn} from "./inquiries.component";
 
 
 @Component({
@@ -17,14 +17,18 @@ export class ActiveInquiriesComponent extends InquiriesComponent{
     //TODO
     return [];
   }
-  getInquiriesTableItemElementToDisplay(): InquiriesTableItemElement[]{
+  getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[]{
     return [
-      InquiriesTableItemElement.NAME,
-      InquiriesTableItemElement.LOOKING_FOR,
-      InquiriesTableItemElement.RECEIVED_AT,
-      InquiriesTableItemElement.MATCHING_DATASETS,
-      InquiriesTableItemElement.AS_OF
+      InquiriesTableItemColumn.NAME,
+      InquiriesTableItemColumn.LOOKING_FOR,
+      InquiriesTableItemColumn.RECEIVED_AT,
+      InquiriesTableItemColumn.MATCHING_DATASETS,
+      InquiriesTableItemColumn.AS_OF
     ];
   };
+
+  getTitel(): string {
+    return "Active Suchanfragen";
+  }
 
 }

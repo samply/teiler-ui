@@ -17,6 +17,7 @@ import {UploadsComponent} from "../embedded/uploads/uploads.component";
 import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.component";
 import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
+import {InquiriesComponent} from "../embedded/inquiries/inquiries.component";
 
 
 
@@ -31,6 +32,7 @@ export const routingComponents = [
   ActiveInquiriesComponent,
   ArchivedInquiriesComponent,
   FailedInquiriesComponent,
+  InquiriesComponent,
   LanguageSelectorComponent,
   TeilerAppPluginOrchestratorComponent
 ]
