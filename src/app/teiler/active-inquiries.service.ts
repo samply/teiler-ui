@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
-import {EmbeddedTeilerApp, EmbeddedTeilerApps, TeilerRole} from "./teiler-app";
+import {Injectable} from '@angular/core';
+import {EmbeddedTeilerApps} from "./teiler-app";
 import {Router} from "@angular/router";
+import {InquiriesService} from "./inquiries.service";
+import {InquiriesClientService, Inquiry} from "../embedded/inquiries/inquiries-client.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActiveInquiriesService extends EmbeddedTeilerApp{
+export class ActiveInquiriesService extends InquiriesService{
 
   description: string = "Active inquiries";
   iconClass: string | undefined = "bi bi-inbox";
   iconSourceUrl: string | undefined = undefined;
-  roles: TeilerRole[] = [TeilerRole.TEILER_USER];
   title: string = "Active inquiries";
 
-  constructor(router: Router) {
+  constructor(router: Router, private inquiriesClientService:InquiriesClientService) {
     super(EmbeddedTeilerApps.ACTIVE_INQUIRIES, router);
+  }
+
+  fetchInquiries(): Inquiry[] {
+    return this.inquiriesClientService.getActiveInquiries();
   }
 
 }

@@ -1,4 +1,4 @@
-import {Router} from "@angular/router";
+import {Route, Router, Routes} from "@angular/router";
 import {createRouterLinkForBase} from "../route/route-utils";
 
 export enum TeilerRole {
@@ -15,7 +15,12 @@ export enum EmbeddedTeilerApps {
   UPLOADS = 'uploads',
   ACTIVE_INQUIRIES = 'active-inquiries',
   ARCHIVED_INQUIRIES = 'archived-inquiries',
-  FAILED_INQUIRIES = 'failed-inquiries'
+  FAILED_INQUIRIES = 'failed-inquiries',
+  INQUIRY = 'inquiry'
+}
+
+export interface TeilerAppRoute extends Route {
+  teilerAppName: string;
 }
 
 export interface TeilerApp {
@@ -24,6 +29,7 @@ export interface TeilerApp {
   title: string;
   description: string;
   routerLink: string;
+  routerLinkExtension?: string;
   singleSpaLink?: string;
   sourceUrl?: string;
   singleSpaMainJs?: string;
@@ -35,8 +41,10 @@ export interface TeilerApp {
   iconSourceUrl?: string;
   backendUrl?: string;
   order?: number;
-  backendReachable?: boolean | undefined;
-  frontendReachable?: boolean | undefined;
+  inMenu: boolean;
+  backendReachable?: boolean;
+  frontendReachable?: boolean;
+  subroutes?: TeilerAppRoute[];
 
 }
 
@@ -59,6 +67,7 @@ export abstract class EmbeddedTeilerApp implements TeilerApp {
   singleSpaMainJs: string | undefined = undefined;
   sourceUrl: string | undefined = undefined;
   frontendReachable: boolean = true;
+  inMenu: boolean = true;
 
 
   constructor(name: string, router: Router) {
@@ -85,5 +94,6 @@ export class EmptyTeilerApp implements TeilerApp {
   singleSpaMainJs: undefined = undefined;
   sourceUrl: undefined = undefined;
   title: string = "";
+  inMenu: boolean = false;
 
 }

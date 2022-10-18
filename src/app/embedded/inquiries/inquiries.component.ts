@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {InquiriesService} from "../../teiler/inquiries.service";
+import {Inquiry} from "./inquiries-client.service";
+import {EmbeddedTeilerApps} from "../../teiler/teiler-app";
+import {createRouterLinkForBase} from "../../route/route-utils";
+import {Router} from "@angular/router";
 
 export enum InquiriesTableItemColumn {
   NAME = 'Name',
@@ -10,17 +15,6 @@ export enum InquiriesTableItemColumn {
   ERROR_CODE = 'Error Code'
 }
 
-export interface InquiriesTableItem {
-  inquiryId: number;
-  name: string;
-  lookingFor: string;
-  receivedAt: string;
-  archivedAt?: string;
-  matchingDatasets?: string;
-  asOf?: string;
-  errorCode?: string;
-}
-
 @Component({
   selector: 'inquiries',
   templateUrl: './inquiries.component.html',
@@ -28,20 +22,23 @@ export interface InquiriesTableItem {
 })
 export abstract class InquiriesComponent implements OnInit {
 
-  constructor() {
+  inquiriesTableItemColumn: typeof InquiriesTableItemColumn = InquiriesTableItemColumn;
+
+  constructor(private inquiriesService: InquiriesService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  abstract fetchInquiriesTableItems(): InquiriesTableItem[];
   abstract getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[];
+
   abstract getTitel(): string;
 
-  inquiriesTableItemColumn: typeof InquiriesTableItemColumn = InquiriesTableItemColumn;
+  fetchInquiriesTableItems(): Inquiry[] {
+    return this.inquiriesService.fetchInquiries();
+  }
 
-
-  private columnGetterMap = new Map<InquiriesTableItemColumn, (item: InquiriesTableItem) => string | undefined>([
+  private columnGetterMap = new Map<InquiriesTableItemColumn, (item: Inquiry) => string | undefined>([
     [InquiriesTableItemColumn.NAME, item => item.name],
     [InquiriesTableItemColumn.LOOKING_FOR, item => item.lookingFor],
     [InquiriesTableItemColumn.RECEIVED_AT, item => item.receivedAt],
@@ -51,10 +48,14 @@ export abstract class InquiriesComponent implements OnInit {
     [InquiriesTableItemColumn.ERROR_CODE, item => item.errorCode]
   ])
 
-  getInquiriesTableItemColumn(item: InquiriesTableItem, column: InquiriesTableItemColumn): string | undefined {
+  getInquiriesTableItemColumn(item: Inquiry, column: InquiriesTableItemColumn): string | undefined {
     // @ts-ignore
     let getter: (item: InquiriesTableItem) => string = this.columnGetterMap.get(column);
     return getter(item);
+  }
+
+  getRouterLink(inquiry: Inquiry): string {
+    return '/' + createRouterLinkForBase(this.router, EmbeddedTeilerApps.INQUIRY + '/' + inquiry.inquiryId);
   }
 
 }

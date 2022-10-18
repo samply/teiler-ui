@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {TeilerService} from "../teiler/teiler.service";
-import {EmbeddedTeilerApps, TeilerApp, TeilerRole} from "../teiler/teiler-app";
+import {EmbeddedTeilerApps, TeilerApp, TeilerAppRoute, TeilerRole} from "../teiler/teiler-app";
 import {ConfigurationComponent} from "../embedded/configuration/configuration.component";
 import {QualityReportComponent} from "../embedded/quality-report/quality-report.component";
-import {Route, Router} from "@angular/router";
+import {Route, Router, Routes} from "@angular/router";
 import {TeilerMainMenuComponent} from "../teiler-main-menu/teiler-main-menu.component";
 import {
   TeilerAppPluginOrchestratorComponent
@@ -23,6 +23,7 @@ import {UploadsComponent} from "../embedded/uploads/uploads.component";
 import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.component";
 import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
+import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,8 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.UPLOADS, component: UploadsComponent},
     {name: EmbeddedTeilerApps.ACTIVE_INQUIRIES, component: ActiveInquiriesComponent},
     {name: EmbeddedTeilerApps.ARCHIVED_INQUIRIES, component: ArchivedInquiriesComponent},
-    {name: EmbeddedTeilerApps.FAILED_INQUIRIES, component: FailedInquiriesComponent}
+    {name: EmbeddedTeilerApps.FAILED_INQUIRIES, component: FailedInquiriesComponent},
+    {name: EmbeddedTeilerApps.INQUIRY, component: InquiryComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private router: Router) {
@@ -70,24 +72,33 @@ export class RouteManagerService {
   }
 
   private addTeilerAppToRoutes(teilerApp: TeilerApp, routes: Route[]) {
+    let route: Route = {path: teilerApp.routerLink + (teilerApp.routerLinkExtension ?? '')}
+    this.completeRoute(route, teilerApp, teilerApp.name, teilerApp.subroutes as Route[]);
+    routes.push(route);
+  }
 
-    let route: Route = {path: teilerApp.routerLink}
-
+  private completeRoute(route: Route, teilerApp: TeilerApp, routeName: string, subroutes: Route[]) {
     if (!teilerApp.roles.includes(TeilerRole.TEILER_PUBLIC)) {
       route.canActivate = [AuthGuard];
     }
 
-    if (this.embeddedTeilerAppNameComponentMap.has(teilerApp.name)) {
-      route.component = this.embeddedTeilerAppNameComponentMap.get(teilerApp.name);
-    } else {
-      route.component = TeilerAppPluginOrchestratorComponent;
-    }
+    route.component = this.getComponent(routeName);
 
-    routes.push(route);
+    if (subroutes != undefined) {
+      route.children = subroutes;
+      subroutes.forEach(subroute => {
+        // @ts-ignore
+        this.completeRoute(subroute, teilerApp, subroute['teilerAppName'], subroute.children);
+      })
+    }
 
   }
 
-  private static addFirstRoutes(routes: Route[], router?: Router) {
+  private getComponent(teilerAppName: string) {
+    return (this.embeddedTeilerAppNameComponentMap.has(teilerAppName)) ? this.embeddedTeilerAppNameComponentMap.get(teilerAppName) : TeilerAppPluginOrchestratorComponent;
+  }
+
+  private static addFirstRoutes(routes: Route[], router ?: Router) {
     routes.push({path: createMainRouterLink(router), component: TeilerMainMenuComponent});
     routes.push({
       path: createLoginRouterLink(router),
@@ -98,7 +109,7 @@ export class RouteManagerService {
   }
 
 
-  private static addFinalRoutes(routes: Route[], router?: Router) {
+  private static addFinalRoutes(routes: Route[], router ?: Router) {
     routes.push({path: '**', redirectTo: createMainRouterLink(router)});
   }
 

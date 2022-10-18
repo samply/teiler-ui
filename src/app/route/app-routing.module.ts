@@ -18,6 +18,7 @@ import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.c
 import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 import {InquiriesComponent} from "../embedded/inquiries/inquiries.component";
+import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
 
 
 
@@ -33,12 +34,14 @@ export const routingComponents = [
   ArchivedInquiriesComponent,
   FailedInquiriesComponent,
   InquiriesComponent,
+  InquiryComponent,
   LanguageSelectorComponent,
   TeilerAppPluginOrchestratorComponent
 ]
 
 const routes: Routes = RouteManagerService.fetchBasicRoutes();
 
+// Test: imports: [RouterModule.forRoot(routes, { enableTracing: true }), TeilerModule],
 @NgModule({
   imports: [RouterModule.forRoot(routes), TeilerModule],
   exports: [RouterModule],

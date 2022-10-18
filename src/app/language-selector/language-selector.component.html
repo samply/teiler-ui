@@ -3,7 +3,7 @@
 </button>
 <mat-menu #menu="matMenu">
   <div *ngFor="let languageHref of getAvailableLanguageHrefs()">
-    <a routerLink="/external" [externalLink]="languageHref.href">
+    <a routerLink="/placeholder" [externalLink]="languageHref.href">
         <span>{{languageHref.language}}</span>
     </a>
   </div>

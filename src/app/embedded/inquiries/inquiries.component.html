@@ -26,14 +26,14 @@
       <div *ngFor="let column of getInquiriesTableItemColumnsToDisplay()">
         <ng-container matColumnDef="{{column}}">
           <th mat-header-cell *matHeaderCellDef>{{column}}</th>
-          <td mat-cell *matCellDef="let item">
+          <td mat-cell *matCellDef="let inquiry">
             <div *ngIf="column == inquiriesTableItemColumn.NAME">
-              <a routerLink="/todo">
-                {{getInquiriesTableItemColumn(item, column)}}
+              <a routerLink="{{getRouterLink(inquiry)}}">
+                {{getInquiriesTableItemColumn(inquiry, column)}}
               </a>
             </div>
             <div *ngIf="column != inquiriesTableItemColumn.NAME">
-              {{getInquiriesTableItemColumn(item, column)}}
+              {{getInquiriesTableItemColumn(inquiry, column)}}
             </div>
           </td>
         </ng-container>

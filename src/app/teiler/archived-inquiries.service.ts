@@ -1,20 +1,26 @@
-import { Injectable } from '@angular/core';
-import {EmbeddedTeilerApp, EmbeddedTeilerApps, TeilerRole} from "./teiler-app";
+import {Injectable} from '@angular/core';
+import {EmbeddedTeilerApps} from "./teiler-app";
 import {Router} from "@angular/router";
+import {InquiriesService} from "./inquiries.service";
+import {InquiriesClientService, Inquiry} from "../embedded/inquiries/inquiries-client.service";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArchivedInquiriesService extends EmbeddedTeilerApp{
+export class ArchivedInquiriesService extends InquiriesService{
 
   description: string = "Archived inquiries";
   iconClass: string | undefined = "bi bi-archive";
   iconSourceUrl: string | undefined = undefined;
-  roles: TeilerRole[] = [TeilerRole.TEILER_USER];
   title: string = "Archived inquiries";
 
-  constructor(router: Router) {
+  constructor(router: Router, private inquiriesClientService:InquiriesClientService) {
     super(EmbeddedTeilerApps.ARCHIVED_INQUIRIES, router);
+  }
+
+  fetchInquiries(): Inquiry[] {
+    return this.inquiriesClientService.getArchivedInquiries();
   }
 
 }

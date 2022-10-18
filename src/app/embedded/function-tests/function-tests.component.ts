@@ -3,7 +3,6 @@ import {ActivatedRoute} from "@angular/router";
 import {boxes} from '../boxes';
 import {DatePipe} from '@angular/common';
 import {data} from "./inhalttests";
-import {MatExpansionPanel} from "@angular/material/expansion";
 
 @Component({
   selector: 'function-tests-app',
