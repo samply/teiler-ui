@@ -76,9 +76,9 @@
               "outputHashing": "none"
             },
             "en": {
-              "localize": [
-                "en"
-              ],
+              "localize": ["en"],
+              "baseHref": "/en/",
+              "deployUrl": "/en/",
               "outputHashing": "none"
             }
           },
