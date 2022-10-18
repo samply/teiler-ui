@@ -34,6 +34,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {BarChartModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -45,34 +47,36 @@ import {MatMenuModule} from "@angular/material/menu";
     TeilerBoxComponent,
     TeilerWelcomeComponent
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        FlexLayoutModule,
-        FormsModule,
-        HttpClientModule,
-        KeycloakAngularModule,
-        MatButtonModule,
-        MatCardModule,
-        MatDividerModule,
-        MatExpansionModule,
-        MatFormFieldModule,
-        MatGridListModule,
-        MatIconModule,
-        MatInputModule,
-        MatListModule,
-        MatPaginatorModule,
-        MatProgressBarModule,
-        MatSelectModule,
-        MatSidenavModule,
-        MatTableModule,
-        MatToolbarModule,
-        NoopAnimationsModule,
-        ParcelModule,
-        ReactiveFormsModule,
-        TeilerModule,
-        MatMenuModule
-    ],
+  imports: [
+    AppRoutingModule,
+    BarChartModule,
+    BrowserModule,
+    FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
+    KeycloakAngularModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    NoopAnimationsModule,
+    ParcelModule,
+    ReactiveFormsModule,
+    TeilerModule
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,

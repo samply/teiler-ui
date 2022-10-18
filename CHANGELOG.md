@@ -45,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Inquiries Teiler App
 - Archived, Failed and Active Inquiries
 - Inquiry
+- Inquiry Sarkome Mock-Up
 
 ## Fixed
 - Update teiler apps in sidebar
