@@ -72,8 +72,8 @@ export abstract class EmbeddedTeilerApp implements TeilerApp {
 
   constructor(name: string, router: Router) {
     this.name = name;
-    this.routerLink = createRouterLinkForBase(router, name);
-    router.events.subscribe(routerEvent => this.routerLink = createRouterLinkForBase(router, name));
+    this.routerLink = createRouterLinkForBase(name);
+    router.events.subscribe(routerEvent => this.routerLink = createRouterLinkForBase(name));
   }
 
 }

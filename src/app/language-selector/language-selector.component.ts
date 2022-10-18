@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {getHref, getRouterLinkSwitchingLocale} from "../route/route-utils";
-import {Router} from "@angular/router";
 
 
 class LanguageHref {
@@ -15,7 +14,7 @@ class LanguageHref {
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class LanguageSelectorComponent implements OnInit {
   }
 
   getHref(locale: string) {
-    return getHref(getRouterLinkSwitchingLocale(this.router, locale));
+    return getHref(getRouterLinkSwitchingLocale(locale));
   }
 
   getAvailableLocales(): string[] {

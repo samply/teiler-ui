@@ -57,7 +57,7 @@ export class TeilerService {
   }
 
   getTeilerCoreAppsUrl() {
-    return environment.config.TEILER_CORE_URL + '/apps/' + getLocale(this.router);
+    return environment.config.TEILER_CORE_URL + '/apps/' + getLocale();
   }
 
   filterTeilerApps() {

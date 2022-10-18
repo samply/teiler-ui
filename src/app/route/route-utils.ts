@@ -6,23 +6,20 @@ export const BASE_LOGIN_ROUTER_LINK: string = 'login';
 export const BASE_LOGOUT_ROUTER_LINK: string = 'logout';
 
 
-export function createMainRouterLink(router?: Router): string {
-  return createRouterLinkForBase(router, BASE_MAIN_ROUTER_LINK);
+export function createMainRouterLink(): string {
+  return createRouterLinkForBase(BASE_MAIN_ROUTER_LINK);
 }
 
-export function createLoginRouterLink(router?: Router): string {
-  return createRouterLinkForBase(router, BASE_LOGIN_ROUTER_LINK);
+export function createLoginRouterLink(): string {
+  return createRouterLinkForBase(BASE_LOGIN_ROUTER_LINK);
 }
 
-export function createLogoutRouterLink(router?: Router): string {
-  return createRouterLinkForBase(router, BASE_LOGOUT_ROUTER_LINK);
+export function createLogoutRouterLink(): string {
+  return createRouterLinkForBase(BASE_LOGOUT_ROUTER_LINK);
 }
 
-export function createRouterLinkForBase(router: Router | undefined, base: string) {
-  if (router != undefined) {
-    base = createRouterLinkForBaseWithLocale(getLocale(router), base)
-  }
-  return base;
+export function createRouterLinkForBase(base: string) {
+    return createRouterLinkForBaseWithLocale(getLocale(), base)
 }
 
 function createRouterLinkForBaseWithLocale(locale: string, base: string) {
@@ -32,9 +29,9 @@ function createRouterLinkForBaseWithLocale(locale: string, base: string) {
   return locale + ((locale.length > 0 && base.length > 0) ? '/' : '') + base;
 }
 
-export function getLocale(router: Router): string {
+export function getLocale(): string {
   let locale = environment.config.DEFAULT_LANGUAGE.toLowerCase();
-  let url = router.url;
+  let url = window.location.pathname;
   let index1 = url.indexOf('/');
   if (index1 > -1 && index1 + 1 < url.length) {
     let index2 = url.indexOf('/', index1 + 1);
@@ -43,6 +40,7 @@ export function getLocale(router: Router): string {
       locale = tempLocale;
     }
   }
+
   return locale;
 }
 
@@ -51,17 +49,17 @@ function isLocale(locale: string): boolean {
   return require('cldr-core/availableLocales.json').availableLocales.full.indexOf(locale) > -1;
 }
 
-export function getRouterLinkSwitchingLocale(router: Router, locale: string): string {
-  let currentLocale = getLocale(router);
-  let url = ignoreFirstSlash(router.url);
-  if (url.length > 0 && currentLocale !== environment.config.DEFAULT_LANGUAGE.toLowerCase()){
+export function getRouterLinkSwitchingLocale(locale: string): string {
+  let currentLocale = getLocale();
+  let url = ignoreFirstSlash(window.location.pathname);
+  if (url.length > 0 && currentLocale !== environment.config.DEFAULT_LANGUAGE.toLowerCase()) {
     url = url.substring(locale.length);
     url = ignoreFirstSlash(url);
   }
   return createRouterLinkForBaseWithLocale(locale, url);
 }
 
-function ignoreFirstSlash (url: string){
+function ignoreFirstSlash(url: string) {
   return (url.charAt(0) == '/') ? url.substring(1) : url;
 }
 

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {InquiriesComponent, InquiriesTableItemColumn} from "./inquiries.component";
 import {FailedInquiriesService} from "../../teiler/failed-inquiries.service";
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,8 +10,8 @@ import {Router} from "@angular/router";
 })
 export class FailedInquiriesComponent extends InquiriesComponent{
 
-  constructor(failedInquiriesService: FailedInquiriesService, router: Router) {
-    super(failedInquiriesService, router);
+  constructor(failedInquiriesService: FailedInquiriesService) {
+    super(failedInquiriesService);
   }
 
   getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[]{

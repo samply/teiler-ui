@@ -50,9 +50,9 @@ export class RouteManagerService {
     teilerService.followTeilerApps().subscribe(teilerApps => {
       this.router.resetConfig(this.fetchRoutes(teilerApps));
 
-      this.mainRouterLink = createMainRouterLink(this.router);
-      this.loginRouterLink = createLoginRouterLink(this.router);
-      this.logoutRouterLink = createLogoutRouterLink(this.router);
+      this.mainRouterLink = createMainRouterLink();
+      this.loginRouterLink = createLoginRouterLink();
+      this.logoutRouterLink = createLogoutRouterLink();
     });
   }
 
@@ -64,9 +64,9 @@ export class RouteManagerService {
 
   private fetchRoutes(teilerApps: TeilerApp[]) {
     let routes: Route[] = [];
-    RouteManagerService.addFirstRoutes(routes, this.router);
+    RouteManagerService.addFirstRoutes(routes);
     teilerApps.filter(teilerApp => teilerApp.activated && !teilerApp.externLink).forEach(teilerApp => this.addTeilerAppToRoutes(teilerApp, routes));
-    RouteManagerService.addFinalRoutes(routes, this.router);
+    RouteManagerService.addFinalRoutes(routes);
 
     return routes;
   }
@@ -98,19 +98,19 @@ export class RouteManagerService {
     return (this.embeddedTeilerAppNameComponentMap.has(teilerAppName)) ? this.embeddedTeilerAppNameComponentMap.get(teilerAppName) : TeilerAppPluginOrchestratorComponent;
   }
 
-  private static addFirstRoutes(routes: Route[], router ?: Router) {
-    routes.push({path: createMainRouterLink(router), component: TeilerMainMenuComponent});
+  private static addFirstRoutes(routes: Route[]) {
+    routes.push({path: createMainRouterLink(), component: TeilerMainMenuComponent});
     routes.push({
-      path: createLoginRouterLink(router),
+      path: createLoginRouterLink(),
       component: TeilerMainMenuComponent,
       canActivate: [AuthGuard]
     });
-    routes.push({path: createLogoutRouterLink(router), component: TeilerMainMenuComponent});
+    routes.push({path: createLogoutRouterLink(), component: TeilerMainMenuComponent});
   }
 
 
-  private static addFinalRoutes(routes: Route[], router ?: Router) {
-    routes.push({path: '**', redirectTo: createMainRouterLink(router)});
+  private static addFinalRoutes(routes: Route[]) {
+    routes.push({path: '**', redirectTo: createMainRouterLink()});
   }
 
   public static fetchBasicRoutes() {

@@ -23,7 +23,7 @@ export class AuthGuard extends KeycloakAuthGuard {
   }
 
   getRedirectUri(): string {
-    return getHref(createMainRouterLink(this.router))
+    return getHref(createMainRouterLink())
   }
 
 

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {InquiriesComponent, InquiriesTableItemColumn} from "./inquiries.component";
 import {ActiveInquiriesService} from "../../teiler/active-inquiries.service";
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,8 +10,8 @@ import {Router} from "@angular/router";
 })
 export class ActiveInquiriesComponent extends InquiriesComponent{
 
-  constructor(activeInquiriesService: ActiveInquiriesService, router: Router) {
-    super(activeInquiriesService, router);
+  constructor(activeInquiriesService: ActiveInquiriesService) {
+    super(activeInquiriesService);
   }
 
   getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[]{

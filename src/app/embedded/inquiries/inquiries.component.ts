@@ -3,7 +3,6 @@ import {InquiriesService} from "../../teiler/inquiries.service";
 import {Inquiry} from "./inquiries-client.service";
 import {EmbeddedTeilerApps} from "../../teiler/teiler-app";
 import {createRouterLinkForBase} from "../../route/route-utils";
-import {Router} from "@angular/router";
 
 export enum InquiriesTableItemColumn {
   NAME = 'Name',
@@ -24,7 +23,7 @@ export abstract class InquiriesComponent implements OnInit {
 
   inquiriesTableItemColumn: typeof InquiriesTableItemColumn = InquiriesTableItemColumn;
 
-  constructor(private inquiriesService: InquiriesService, private router: Router) {
+  constructor(private inquiriesService: InquiriesService) {
   }
 
   ngOnInit(): void {
@@ -55,7 +54,7 @@ export abstract class InquiriesComponent implements OnInit {
   }
 
   getRouterLink(inquiry: Inquiry): string {
-    return '/' + createRouterLinkForBase(this.router, EmbeddedTeilerApps.INQUIRY + '/' + inquiry.inquiryId);
+    return '/' + createRouterLinkForBase(EmbeddedTeilerApps.INQUIRY + '/' + inquiry.inquiryId);
   }
 
 }

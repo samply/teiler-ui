@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {InquiriesComponent, InquiriesTableItemColumn} from "./inquiries.component";
 import {ArchivedInquiriesService} from "../../teiler/archived-inquiries.service";
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,8 +10,8 @@ import {Router} from "@angular/router";
 })
 export class ArchivedInquiriesComponent extends InquiriesComponent{
 
-  constructor(archivedInquiriesService: ArchivedInquiriesService, router: Router) {
-    super(archivedInquiriesService, router);
+  constructor(archivedInquiriesService: ArchivedInquiriesService) {
+    super(archivedInquiriesService);
   }
 
   getInquiriesTableItemColumnsToDisplay(): InquiriesTableItemColumn[]{
