@@ -14,27 +14,6 @@
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="end" class="teiler-box-checks">
-    <div *ngIf="showFrontendCheck()">
-      <div *ngIf="teilerApp.frontendReachable == true">
-        <div title="frontend reachable" class="teiler-box-check-frontend check-reachable text-circle">F</div>
-      </div>
-      <div *ngIf="teilerApp.frontendReachable == false">
-        <div title="frontend unreachable" class="teiler-box-check-frontend check-unreachable text-circle">F</div>
-      </div>
-      <div *ngIf="teilerApp.frontendReachable == null || teilerApp.frontendReachable == undefined">
-        <div title="waiting for frontend" class="teiler-box-check-frontend check-waiting text-circle">F</div>
-      </div>
-    </div>
-    <div *ngIf="showBackendCheck()">
-      <div *ngIf="teilerApp.backendReachable == true">
-        <div title="backend reachable" class="teiler-box-check-frontend check-reachable text-circle">B</div>
-      </div>
-      <div *ngIf="teilerApp.backendReachable == false">
-        <div title="backend unreachable" class="teiler-box-check-frontend check-unreachable text-circle">B</div>
-      </div>
-      <div *ngIf="teilerApp.backendReachable == null || teilerApp.backendReachable == undefined">
-        <div title="waiting for backend" class="teiler-box-check-frontend check-waiting text-circle">B</div>
-      </div>
-    </div>
+    <i class="{{getCheckIconClass()}}" title="{{getCheckIconTitle()}}"></i>
   </div>
 </div>

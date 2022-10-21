@@ -54,3 +54,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - i18n
 - space after welcome
 - Redirect to main if router link not found
+
+## CHANGED
+- Check for both frontend and backend

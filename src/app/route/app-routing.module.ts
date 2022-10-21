@@ -44,7 +44,7 @@ const routes: Routes = RouteManagerService.fetchBasicRoutes();
 // Prod: imports: [RouterModule.forRoot(routes), TeilerModule],
 // Test: imports: [RouterModule.forRoot(routes, { enableTracing: true }), TeilerModule],
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true }), TeilerModule],
+  imports: [RouterModule.forRoot(routes), TeilerModule],
   exports: [RouterModule],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}]
 })
