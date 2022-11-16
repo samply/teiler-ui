@@ -56,5 +56,9 @@ export abstract class InquiriesComponent implements OnInit {
   getRouterLink(inquiry: Inquiry): string {
     return '/' + createRouterLinkForBase(EmbeddedTeilerApps.INQUIRY + '/' + inquiry.inquiryId);
   }
-
+  reload() {
+    window.location.reload();
+    // any other execution
+    this.ngOnInit()
+  }
 }

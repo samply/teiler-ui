@@ -15,45 +15,62 @@
   </div>
   <br>
   <div class="downloadandselector">
-    <mat-form-field appearance="fill" class="firstoption">
-      <mat-label>Auswahl</mat-label>
-      <mat-select>
-        <mat-option value="one">Testlauf</mat-option>
-        <mat-option value="two">Upload</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="secondoption">
-      <mat-label>Auswahl</mat-label>
-      <mat-select>
-        <mat-option value="one">komplett</mat-option>
-        <mat-option value="two">inkrementell</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="thirdoption">
-      <mat-label>Auswahl</mat-label>
-      <mat-select>
-        <mat-option value="one">DKTK: Ja</mat-option>
-        <mat-option value="two">DKTK: Nein</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-accordion>
-      <mat-expansion-panel style="width: 34.8%;"
-                           (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Starten
-          </mat-panel-title>
-          <mat-panel-description>
-            Currently {{panelOpenState ? 'downloading' : 'waiting'}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Auswahl</mat-label>
+            <select matNativeControl [formControl]="optionControl" name="option">
+              <option *ngFor="let option of op1" [value]="option.value">{{ option.value }}</option>
+            </select>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button matStepperNext>Nächste</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Auswahl</mat-label>
+            <select matNativeControl [formControl]="option2Control" name="option">
+              <option *ngFor="let option of op2" [value]="option.value">{{ option.value }}</option>
+            </select>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button matStepperPrevious>Zurück</button>
+            <button mat-stroked-button matStepperNext>Nächste</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Auswahl</mat-label>
+            <select matNativeControl [formControl]="option3Control" name="option">
+              <option *ngFor="let option of op3" [value]="option.value">{{ option.value }}</option>
+            </select>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button matStepperPrevious>Zurück</button>
+            <button mat-stroked-button matStepperNext>Ihre Auswahl</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <h4>Ihre Auswahl:</h4>
+          <p>{{optionControl.value}}</p>
+          <p>{{option2Control.value}}</p>
+          <p>{{option3Control.value}}</p>
+          <br>
+          <div>
+            <button mat-stroked-button (click)="stepper.reset()">Auswahl zurücksetzen</button>
+            <button mat-stroked-button (click)="openDialog()">Starten</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-stepper>
   </div>
   <br>
   <div class="over">
@@ -61,16 +78,9 @@
   </div>
   <br>
   <div class="search">
-    Einträge Anzeigen
-    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;">
-      <option value="10" selected>10</option>
-      <option value="25" selected>25</option>
-      <option value="50" selected>50</option>
-      <option value="100" selected>100</option>
-    </select>
-    <label class="matinput">
-      Suche
-      <input matInput>
+    Suche:
+    <label class="matinput" >
+      <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
     </label>
   </div>
 

@@ -7,19 +7,13 @@
     <hr>
   </div>
   <div class="search">
-    <p>Einträge Anzeigen: </p>
-    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;">
-      <option value="10" selected>10</option>
-      <option value="25" selected>25</option>
-      <option value="50" selected>50</option>
-      <option value="100" selected>100</option>
-    </select>
     <label class="matinput">
       Suche:
-      <input matInput style="border:0.5px solid">
+      <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
     </label>
   </div>
-  <div class="wholetable">
+
+  <div>
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

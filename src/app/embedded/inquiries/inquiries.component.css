@@ -8,13 +8,12 @@ header{
   padding: 0.05%;
 }
 .main{
-  width: 80%;
+  width: 1200px;
   margin-left:auto;
   margin-right:auto;
 }
 .over{
-  width: 70%;
-  margin-left: 10%;
+  width: 100%;
   margin-right: 10%;
   color: #fcfcfc;
 }
@@ -24,7 +23,6 @@ h1{
   text-align: left;
   font-family: Segoe Ui, serif;
   font-size: 28px;
-  margin-left: 18%;
 }
 
 h2{
@@ -32,7 +30,6 @@ h2{
   font-family:Segoe UI,serif;
   color:dimgrey;
   font-size: 32px;
-  margin-left: 10%;
   margin-top: 1.5%;
 }
 
@@ -40,12 +37,18 @@ h2{
   font-family: Segoe Ui, serif;
   color:dimgrey;
   font-size: 16px;
-  margin-left: 10%;
+  margin-left: 960px;
   margin-top: 0.5%;
 }
 
-.matinput{
-  margin-left: 52.5%;
+button{
+  font-family: Segoe Ui, serif;
+  color:dimgrey;
+  background-color: white;
+  font-size: 16px;
+  margin-top: 0.5%;
+
+  border-radius: 4px;
 }
 
 

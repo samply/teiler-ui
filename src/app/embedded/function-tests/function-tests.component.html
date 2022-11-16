@@ -1,268 +1,131 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<div class="main" style="position: center">
+<div class="main">
   <div class="title">
     <h2>Funktionstest</h2>
   </div>
   <div class="over">
     <hr>
   </div>
-  <div class="zero">
-    <h3>Verbindung zur zentralen MDS Datenbank pr&uuml;fen</h3>
-    <div class="line">
-      <hr>
-    </div>
-    <div class="x1">
-      <mat-card>Erreichbarkeit pr&uuml;fen</mat-card>
-      <mat-expansion-panel (closed)="panelOpenState = false"
-                           (opened)="panelOpenState = true" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <br>Sendet einen HTTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar
-            ist.
-          </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-
-        </mat-expansion-panel-header>
-
-        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgrey;">
-          {{todayWithPipe}}
-          <div class="inhalt" *ngFor="let data of data">
-            <p>
-              {{data.inhalt1}}
-              <br>
-              {{data.inhalt2}}
-            </p>
-            <div class="icons">
-              <i class={{data.icon1}}></i>
-            </div>
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <br>
-      <mat-card>Testpatient hochladen und anschließend l&ouml;schen</mat-card>
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <br>Sendet einen einfachen Testpatienten Datensatz zur zentralen MDS Datenbank hoch und löscht diesen
-            anschließend wieder.
-          </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-
-        </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-          {{todayWithPipe}}
-          <div class="inhalt" *ngFor="let data of data">
-            <p>
-              {{data.inhalt3}}
-              <br>
-              {{data.inhalt4}}
-              <br>
-              {{data.inhalt5}}
-              <br>
-              {{data.inhalt6}}
-              <br>
-              {{data.inhalt7}}
-            </p>
-            <div class="icons">
-              <i class={{data.icon2}}></i>
-            </div>
-          </div>
-        </div>
-      </mat-expansion-panel>
-
-    </div>
-  </div>
-  <div class="one">
-    <h3>Verbindung zum ID-Manager pr&uuml;fen</h3>
-    <div class="line">
-      <hr>
-    </div>
-    <div class="x1">
-      <mat-card>Erreichbarkeit pr&uuml;fen</mat-card>
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Sendet einen HTTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar ist.
-          </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-        </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-          {{todayWithPipe}}
-          <div class="inhalt" *ngFor="let data of data">
-            <p>
-              {{data.inhalt8}}
-              <br>
-              {{data.inhalt9}}
-            </p>
-            <div class="icons">
-              <i class={{data.icon3}}></i>
-            </div>
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <br>
-      <mat-card>Export ID anfordern</mat-card>
-      <mat-card class="extra">Holt ein Exportpseudonym für eine gegebene DKTK-Standort ID ab. Die zu pr&uuml;fende ID
-        bitte nachfolgend angeben.
-      </mat-card>
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Holt ein Exportpseudonym für eine gegebene DKTK-Standort ID ab. Die zu pr&uuml;fende ID bitte nachfolgend
-            angeben.
-            <br>
-            DKTK-Standort ID:
-            <mat-form-field>
-              <input matInput>
-            </mat-form-field>
-          </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-
-        </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-          {{todayWithPipe}}
-          <div class="inhalt" *ngFor="let data of data">
-            <div class="icons">
-              <i class={{data.icon4}}></i>
-            </div>
-          </div>
-        </div>
-      </mat-expansion-panel>
-    </div>
-  </div>
-  <div class="two">
-    <h3>Verbindung zum lokalen Datenmanagement pr&uuml;fen</h3>
-    <div class="line">
-      <hr>
-    </div>
-    <div class="x1">
-      <mat-card>Erreichbarkeit pr&uuml;fen</mat-card>
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst
-            erreichbar ist.
-          </mat-panel-title>
-          <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-        </mat-expansion-panel-header>
-        <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-          {{todayWithPipe}}
-          <div class="inhalt" *ngFor="let data of data">
-            <p>
-              {{data.inhalt10}}
-              <br>
-              {{data.inhalt11}}
-            </p>
-            <div class="icons">
-              <i class={{data.icon5}}></i>
-            </div>
-          </div>
-        </div>
-      </mat-expansion-panel>
-    </div>
-  </div>
-  <div class="three">
-    <h3>Verbindung zu dem/den Suchbroker(n) pr&uuml;fen</h3>
-    <div class="line">
-      <hr>
-    </div>
-    <div class="x1">
-      <mat-card>https://decentralsearch-test.ccpit.dktk.dkfz.de</mat-card>
-      <div class="inside">
-        <mat-card>Erreichbarkeit pr&uuml;fen</mat-card>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Sendet einen HHTP GET request an die konfigurierte Adresse, um zu pr&uuml;fen, ob der Dienst erreichbar
-              ist.
-            </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-
-          </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-            {{todayWithPipe}}
-            <div class="inhalt" *ngFor="let data of data">
-              <p>
-                {{data.inhalt12}}
-                <br>
-                {{data.inhalt3}}
-              </p>
-              <div class="icons">
-                <i class={{data.icon6}}></i>
-              </div>
-            </div>
-          </div>
-        </mat-expansion-panel>
-        <br>
-        <mat-card>Testanfrage herunterladen</mat-card>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              L&auml;dt eine einfache, vom Suchbrokergenerierte, Testanfrage herunter.
-            </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-          </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-            {{todayWithPipe}}
-            <div class="inhalt" *ngFor="let data of data">
-              <p>
-                {{data.inhalt14}}
-                <br>
-                {{data.inhalt15}}
-                <br>
-                {{data.inhalt16}}
-                <br>
-                {{data.inhalt17}}
-                <br>
-                {{data.inhalt18}}
-              </p>
-              <div class="icons">
-                <i class={{data.icon7}}></i>
-              </div>
-            </div>
-          </div>
-        </mat-expansion-panel>
-        <br>
-        <mat-card>Testanfrage herunterladen und ausf&uuml;hren</mat-card>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              L&auml;dt eine einfache, vom Suchbroker generierte Testanfrage herunter und schickt diese an das lokale
-              Datenmanaement.
-            </mat-panel-title>
-            <button mat-stroked-button (click)=toggleDisplayDivIf()>Pr&uuml;fen</button>
-
-          </mat-expansion-panel-header>
-          <div *ngIf="panelOpenState" style="font-family: Segoe Ui, serif;color: dimgray;">
-            {{todayWithPipe}}
-            <div class="inhalt" *ngFor="let data of data">
-              <p>
-                {{data.inhalt19}}
-                <br>
-                {{data.inhalt20}}
-                <br>
-                {{data.inhalt21}}
-                <br>
-                {{data.inhalt22}}
-                <br>
-                {{data.inhalt23}}
-              </p>
-              <div class="icons">
-                <i class={{data.icon8}}></i>
-              </div>
-            </div>
-          </div>
-        </mat-expansion-panel>
+  <div class="float">
+    <mat-card id="1">Erreichbarkeit pr&uuml;fen
+      <div *ngIf="isShowInfo">
+        <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
       </div>
+    </mat-card>
+    <mat-card>
+      Sendet einen HTTP GET request
+      an die <br> konfigurierte Adresse, um zu pr&uuml;fen, ob<br> der
+      Dienst erreichbar ist.
+      <br><br>
+      <button mat-stroked-button onclick="document.getElementById('1').style.backgroundColor = '#dff0d8'" (click)="isShowInfo = !isShowInfo">Prüfen</button>
+
+    </mat-card>
+  </div>
+  <div class="float" style="margin-left:1%">
+    <mat-card id="2">Testpatient hochladen und anschließend l&ouml;schen
+      <div *ngIf="isShowInfo1">
+        <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+      </div></mat-card>
+    <mat-card>
+      Sendet einen einfachen Testpatienten <br> Datensatz zur zentralen MDS Datenbank <br>hoch und löscht diesen anschließend wieder.
+      <br><br>
+      <button mat-stroked-button onclick="document.getElementById('2').style.backgroundColor = '#dff0d8'" (click)="isShowInfo1 = !isShowInfo1">Prüfen</button>
+    </mat-card>
+  </div>
+<div class="one">
+  <h3>Verbindung zum ID-Manager pr&uuml;fen</h3>
+  <div class="line">
+    <hr>
+  </div>
+  <div class="x1">
+    <div class="float">
+
+      <mat-card id="3">Erreichbarkeit pr&uuml;fen  <div *ngIf="isShowInfo2">
+        <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+      </div>
+
+      </mat-card>
+      <mat-card>
+        Sendet einen HTTP GET request an die <br>konfigurierte Adresse, um zu pr&uuml;fen, ob <br>der Dienst erreichbar ist.
+        <br><br>
+        <br><br>
+        <br><br>
+        <button mat-stroked-button onclick="document.getElementById('3').style.backgroundColor = '#dff0d8'" (click)="isShowInfo2 = !isShowInfo2">Prüfen</button>
+      </mat-card>
+    </div>
+    <div class="float" style="margin-left:1%">
+      <mat-card id="4">Export ID anfordern  <div *ngIf="isShowInfo3">
+        <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+      </div></mat-card>
+      <mat-card>Holt ein Exportpseudonym für eine <br>gegebene DKTK-Standort ID ab. <br>Die zu pr&uuml;fende ID bitte nachfolgend angeben.
+        <br>
+        DKTK-Standort ID:
+        <mat-form-field>
+          <input matInput>
+        </mat-form-field>
+        <br><br>
+        <button mat-stroked-button onclick="document.getElementById('4').style.backgroundColor = '#dff0d8'" (click)="isShowInfo3 = !isShowInfo3">Prüfen</button>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="two">
+  <h3>Verbindung zum lokalen Datenmanagement pr&uuml;fen</h3>
+  <div class="line">
+    <hr>
+  </div>
+  <div class="x1">
+    <div class="float">
+      <mat-card id="5">Erreichbarkeit pr&uuml;fen  <div *ngIf="isShowInfo4">
+        <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+      </div></mat-card>
+      <mat-card>Sendet einen HTTP GET request an die <br>konfigurierte Adresse, um zu pr&uuml;fen,<br> ob der Dienst erreichbar ist.
+        <br><br>
+        <button mat-stroked-button onclick="document.getElementById('5').style.backgroundColor = '#dff0d8'" (click)="isShowInfo4 = !isShowInfo4">Prüfen</button>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="three">
+  <h3>Verbindung zu dem/den Suchbroker(n) pr&uuml;fen</h3>
+  <div class="line">
+    <hr>
+  </div>
+  <div class="x1" >
+    <mat-card class="heading">https://decentralsearch-test.ccpit.dktk.dkfz.de</mat-card>
+    <div class="inside" >
+      <div class="float">
+        <mat-card id="6">Erreichbarkeit pr&uuml;fen  <div *ngIf="isShowInfo5">
+          <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+        </div></mat-card>
+        <mat-card>
+          Sendet einen HTTP GET request an die<br> konfigurierte Adresse, um zu pr&uuml;fen,<br> ob der Dienst erreichbar ist.
+          <br><br>
+          <button mat-stroked-button onclick="document.getElementById('6').style.backgroundColor = '#dff0d8'" (click)="isShowInfo5 = !isShowInfo5">Prüfen</button>
+        </mat-card>
+      </div>
+      <div class="float" style="margin-left:1%">
+        <mat-card id="7">Testanfrage herunterladen  <div *ngIf="isShowInfo6">
+          <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+        </div></mat-card>
+        <mat-card>
+          L&auml;dt eine einfache, vom<br> Suchbroker generierte, Testanfrage<br> herunter.
+          <br><br>
+          <button mat-stroked-button onclick="document.getElementById('7').style.backgroundColor = '#dff0d8'" (click)="isShowInfo6 = !isShowInfo6">Prüfen</button>
+        </mat-card>
+      </div>
+      <div class="float">
+        <mat-card id="8">Testanfrage herunterladen und ausf&uuml;hren  <div *ngIf="isShowInfo7">
+          <button class="infb" mat-stroked-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon></button>
+        </div></mat-card>
+        <mat-card>
+          L&auml;dt eine einfache, vom <br>Suchbroker generierte Testanfrage <br>herunter und schickt diese an <br>das lokale Datenmanagement.
+          <br><br>
+          <button mat-stroked-button onclick="document.getElementById('8').style.backgroundColor = '#dff0d8'" (click)="isShowInfo7 = !isShowInfo7">Prüfen</button>
+        </mat-card>
+      </div>
+    </div>
     </div>
   </div>
 </div>

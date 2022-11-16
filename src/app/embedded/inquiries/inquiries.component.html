@@ -5,18 +5,14 @@
   <div class="over">
     <hr>
   </div>
+  <button (click)="reload()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="refresh"></mat-icon>
+  </button>
   <div class="everything">
     <div class="search">
       <div>
-        Show <select name="numbers" id="numbers">
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-      </select> entries
+        Suche:
         <label class="matinput">
-          Suche:
-          <input matInput>
+          <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
         </label>
       </div>
     </div>

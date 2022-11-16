@@ -15,50 +15,56 @@ header{
   margin-left:auto;
   margin-right:auto;
 }
-.main{
-  width: 80%;
-  margin-left:auto;
-  margin-right:auto;
-}
-.over{
-  width: 70%;
-  margin-left: 12.5%;
-  margin-right: 10%;
-  color: #fcfcfc;
-  margin-top: 1%;
-}
+
 h1{
   color: white;
   text-align: left;
   font-family: Segoe Ui, serif;
   font-size: 28px;
-  margin-left: 20%;
+}
+.main{
+  width: 1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.over{
+
+  margin-top: 1%;
+  color: dimgrey;
 }
 h2{
   text-align: left;
   font-family:Segoe UI,serif;
   color:dimgrey;
-  font-size: 36px;
-  margin-left: 12.5%;
+  font-size: 32px;
   margin-top: 1.5%;
 }
 h3{
   text-align: left;
   font-family:Segoe UI,serif;
   color:dimgrey;
-  font-size: 28px;
-  margin-left: 12.5%;
+  font-size: 22px;
+  margin-top: 1.5%;
+}
+h4{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  font-size: 19px;
+  margin-top: 1.5%;
+}
+p{
+  text-align: left;
+  font-family:Segoe UI,serif;
+  font-size: 16px;
   margin-top: 1.5%;
 }
 .search{
   font-family: Segoe Ui, serif;
   color:dimgrey;
   font-size: 16px;
-  margin-left: 12.5%;
   margin-top: 0.5%;
-}
-.matinput{
-  margin-left: 60.5%;
+  margin-left: 960px;
+
 }
 
 .firstoption {
@@ -83,7 +89,7 @@ mat-expansion-panel {
 
 .downloadandselector {
   flex-direction: column;
-  margin-left: 12.5%;
+
   padding-right: 10px;
 }
 
@@ -91,12 +97,10 @@ mat-expansion-panel {
   margin-left: 0%;
   padding-right: 10px;
 }
-
 table{
   text-align: left;
-  width: 70%;
+  width: 100%;
   color: dimgrey;
-  margin-left: 12.5%;
   margin-top: 2%;
 }
 
@@ -105,5 +109,5 @@ LogAndTable {
 }
 mat-paginator{
   margin-top: 1%;
-  margin-right: 17%;
+
 }
