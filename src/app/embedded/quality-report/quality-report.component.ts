@@ -3,6 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 
 import {DatePipe} from '@angular/common';
 import {boxes} from "../boxes";
+import {DialogQualiComponent} from "../pop-ups/dialog-quali/dialog-quali.component";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 
 export interface QualityReports {
@@ -63,18 +65,20 @@ export class QualityReportComponent implements OnInit {
   pipe = new DatePipe('en-US');
   todayWithPipe = null;
 
-  boxes: { inf: string; inf2: string; icon_source: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; inf4: string; inf3: string; inf5: string; name: string; icon: string; id: number } | { inf: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; inf3: string; name: string; icon: string; id: number } | undefined;
-
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const boxesIdFromRoute = Number(routeParams.get('boxesId'));
-    this.boxes = boxes.find(boxes => boxes.id === boxesIdFromRoute);
-
     // @ts-ignore
     this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
+  }
+  openDialog(): void {
+    // @ts-ignore
+    const dialogRef = this.dialog.open(DialogQualiComponent, {});
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

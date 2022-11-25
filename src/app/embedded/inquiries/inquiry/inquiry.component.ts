@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 // @ts-ignore
 import {Data, data} from './data'
 import {Dataname, dataname} from "./dataname";
-import{InquiryDialogComponent} from "../../Dialogs/inquiry-dialog/inquiry-dialog.component";
+import{InquiryDialogComponent} from "../../pop-ups/inquiry-dialog/inquiry-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 export interface data{

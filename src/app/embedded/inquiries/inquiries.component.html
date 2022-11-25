@@ -5,9 +5,8 @@
   <div class="over">
     <hr>
   </div>
-  <button (click)="reload()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="refresh"></mat-icon>
+  <button (click)="reload()"><i class="bi bi-arrow-clockwise"></i>
   </button>
-  <div class="everything">
     <div class="search">
       <div>
         Suche:
@@ -16,7 +15,6 @@
         </label>
       </div>
     </div>
-  </div>
   <div class="wholetable">
     <table mat-table [dataSource]="fetchInquiriesTableItems()" class="mat-elevation-z8">
       <div *ngFor="let column of getInquiriesTableItemColumnsToDisplay()">

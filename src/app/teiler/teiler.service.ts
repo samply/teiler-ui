@@ -15,6 +15,9 @@ import {ActiveInquiriesService} from "./active-inquiries.service";
 import {ArchivedInquiriesService} from "./archived-inquiries.service";
 import {FailedInquiriesService} from "./failed-inquiries.service";
 import {InquiryService} from "./inquiry.service";
+import {InquiryDialogService} from "./inquiry-dialog.service";
+import {DialogQualiService} from "./dialog-quali.service";
+import {DialogUploadsService} from "./dialog-uploads.service";
 
 
 
@@ -38,9 +41,12 @@ export class TeilerService {
     newInquiriesService: ActiveInquiriesService,
     archivedInquiriesService: ArchivedInquiriesService,
     failedInquiriesService: FailedInquiriesService,
-    inquiryService: InquiryService
+    inquiryService: InquiryService,
+    inquiryDialogService:InquiryDialogService,
+    dialogQualiService:DialogQualiService,
+    dialogUploadsService: DialogUploadsService
   ) {
-    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService, newInquiriesService, archivedInquiriesService, failedInquiriesService, inquiryService];
+    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService, newInquiriesService, archivedInquiriesService, failedInquiriesService, inquiryService, inquiryDialogService, dialogQualiService, dialogUploadsService];
     this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)
     router.events.subscribe(myEvent => this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps));
   }

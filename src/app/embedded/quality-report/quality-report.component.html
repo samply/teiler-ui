@@ -7,6 +7,9 @@
     <hr>
   </div>
   <div class="button">
+    <button mat-button (click)="openDialog()">generate</button>
+
+
     <button (click)=toggleDisplayDivIf() >generate</button>
     <div *ngIf="!isShowDivIf">
       <p><br>Startzeit: {{todayWithPipe}}<br> Bisherige Laufzeit: 0 min<br>Restlaufzeit: 0 min <br><br></p>

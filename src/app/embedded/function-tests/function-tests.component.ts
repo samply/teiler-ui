@@ -18,7 +18,11 @@ export class FunctionTestsComponent implements OnInit {
   pipe = new DatePipe('en-US');
   todayWithPipe = null;
 
-
+  //Panel state
+  panelOpenState = false;
+  togglePanel() {
+    this.panelOpenState = !this.panelOpenState
+  }
   //generator
   title = 'appComponent';
 
@@ -50,17 +54,10 @@ export class FunctionTestsComponent implements OnInit {
 
   }
 
-  boxes: { inf: string; inf2: string; icon_source: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; inf4: string; inf3: string; inf5: string; name: string; icon: string; id: number } | { inf: string; inf1: string; name: string; icon: string; id: number } | { inf: string; inf2: string; inf1: string; inf3: string; name: string; icon: string; id: number } | undefined;
-
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const boxesIdFromRoute = Number(routeParams.get('boxesId'));
-    this.boxes = boxes.find(boxes => boxes.id === boxesIdFromRoute);
-
-
     // @ts-ignore
     this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
 

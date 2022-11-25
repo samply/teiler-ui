@@ -36,9 +36,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BarChartModule} from "@swimlane/ngx-charts";
-import { DialogQualiComponent } from './embedded/Dialogs/dialog-quali/dialog-quali.component';
-import { DialogUploadsComponent } from './embedded/Dialogs/dialog-uploads/dialog-uploads.component';
-import { InquiryDialogComponent } from './embedded/Dialogs/inquiry-dialog/inquiry-dialog.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -48,10 +47,8 @@ import { InquiryDialogComponent } from './embedded/Dialogs/inquiry-dialog/inquir
     TeilerAppPluginOrchestratorComponent,
     ExternalLinkDirective,
     TeilerBoxComponent,
-    TeilerWelcomeComponent,
-    DialogQualiComponent,
-    DialogUploadsComponent,
-    InquiryDialogComponent
+    TeilerWelcomeComponent
+
   ],
   imports: [
     AppRoutingModule,
@@ -81,7 +78,9 @@ import { InquiryDialogComponent } from './embedded/Dialogs/inquiry-dialog/inquir
     NoopAnimationsModule,
     ParcelModule,
     ReactiveFormsModule,
-    TeilerModule
+    TeilerModule,
+    MatStepperModule,
+    MatTabsModule
   ],
   providers: [
     {

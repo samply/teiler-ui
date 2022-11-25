@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'samply-dialog-uploads',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogUploadsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogUploadsComponent>) { }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
   ngOnInit(): void {
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'samply-dialog-quali',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogQualiComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogQualiComponent> ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit(): void {
   }

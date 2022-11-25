@@ -19,6 +19,9 @@ import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiri
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 import {InquiriesComponent} from "../embedded/inquiries/inquiries.component";
 import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
+import {DialogUploadsComponent} from "../embedded/pop-ups/dialog-uploads/dialog-uploads.component";
+import {InquiryDialogComponent} from "../embedded/pop-ups/inquiry-dialog/inquiry-dialog.component";
+import {DialogQualiComponent} from "../embedded/pop-ups/dialog-quali/dialog-quali.component";
 
 
 
@@ -36,7 +39,10 @@ export const routingComponents = [
   InquiriesComponent,
   InquiryComponent,
   LanguageSelectorComponent,
-  TeilerAppPluginOrchestratorComponent
+  TeilerAppPluginOrchestratorComponent,
+  DialogUploadsComponent,
+  InquiryDialogComponent,
+  DialogQualiComponent
 ]
 
 const routes: Routes = RouteManagerService.fetchBasicRoutes();

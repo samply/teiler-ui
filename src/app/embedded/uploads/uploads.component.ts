@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ActivatedRoute} from "@angular/router";
+import {DialogUploadsComponent} from "../pop-ups/dialog-uploads/dialog-uploads.component";
 
 
 interface Options {
@@ -65,14 +67,18 @@ export class UploadsComponent implements OnInit {
   title = 'Uploads';
   panelOpenState = false;
 
-  constructor(private _formBuilder: FormBuilder,public dialog: MatDialog) { }
+  constructor(private _formBuilder: FormBuilder,public dialog: MatDialog, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {}
-    openDialog(): void {
-      const dialogRef = this.dialog.open(UploadDialogComponent, {});
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogUploadsComponent, {});
 
-      dialogRef.afterClosed().subscribe(() => {
-        console.log('The dialog was closed');
-      });
-    }
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+
+  }
+
+
 }
+
