@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@nrwl/angular": "^15.2.1",
     "@swimlane/ngx-charts": "^20.1.0",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",

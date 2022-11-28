@@ -16,7 +16,8 @@ export enum EmbeddedTeilerApps {
   ACTIVE_INQUIRIES = 'active-inquiries',
   ARCHIVED_INQUIRIES = 'archived-inquiries',
   FAILED_INQUIRIES = 'failed-inquiries',
-  INQUIRY = 'inquiry'
+  INQUIRY = 'inquiry',
+  MY_TEST = 'my-test'
 }
 
 export interface TeilerAppRoute extends Route {

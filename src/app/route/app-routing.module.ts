@@ -19,6 +19,7 @@ import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiri
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 import {InquiriesComponent} from "../embedded/inquiries/inquiries.component";
 import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
+import {MyTestComponent} from "../embedded/my-test/my-test.component";
 
 
 
@@ -36,7 +37,8 @@ export const routingComponents = [
   InquiriesComponent,
   InquiryComponent,
   LanguageSelectorComponent,
-  TeilerAppPluginOrchestratorComponent
+  TeilerAppPluginOrchestratorComponent,
+  MyTestComponent
 ]
 
 const routes: Routes = RouteManagerService.fetchBasicRoutes();

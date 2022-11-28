@@ -24,6 +24,7 @@ import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.c
 import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
+import {MyTestComponent} from "../embedded/my-test/my-test.component";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,8 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.ACTIVE_INQUIRIES, component: ActiveInquiriesComponent},
     {name: EmbeddedTeilerApps.ARCHIVED_INQUIRIES, component: ArchivedInquiriesComponent},
     {name: EmbeddedTeilerApps.FAILED_INQUIRIES, component: FailedInquiriesComponent},
-    {name: EmbeddedTeilerApps.INQUIRY, component: InquiryComponent}
+    {name: EmbeddedTeilerApps.INQUIRY, component: InquiryComponent},
+    {name: EmbeddedTeilerApps.MY_TEST, component: MyTestComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private router: Router) {
