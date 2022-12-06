@@ -40,7 +40,16 @@ export class TeilerService {
     failedInquiriesService: FailedInquiriesService,
     inquiryService: InquiryService
   ) {
-    let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService, newInquiriesService, archivedInquiriesService, failedInquiriesService, inquiryService];
+    let embeddedTeilerApps = [
+      qualityReportService,
+      configurationService,
+      functionTestsService,
+      eventLogService,
+      uploadsService,
+      newInquiriesService,
+      archivedInquiriesService,
+      failedInquiriesService,
+      inquiryService];
     this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)
     router.events.subscribe(myEvent => this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps));
   }

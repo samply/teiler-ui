@@ -19,7 +19,18 @@ import {InquiryService} from "./inquiry.service";
     CommonModule
   ],
   exports: [],
-  providers: [ConfigurationService, QualityReportService, FunctionTestsService, EventLogService, TeilerService, TeilerConfigService, UploadsService, ActiveInquiriesService, FailedInquiriesService, ArchivedInquiriesService, InquiryService]
+  providers: [
+    ConfigurationService,
+    QualityReportService,
+    FunctionTestsService,
+    EventLogService,
+    TeilerService,
+    TeilerConfigService,
+    UploadsService,
+    ActiveInquiriesService,
+    FailedInquiriesService,
+    ArchivedInquiriesService,
+    InquiryService]
 })
 export class TeilerModule {
 }
