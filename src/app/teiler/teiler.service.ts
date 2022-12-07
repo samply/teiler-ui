@@ -18,6 +18,7 @@ import {InquiryService} from "./inquiry.service";
 import {InquiryDialogService} from "./inquiry-dialog.service";
 import {DialogQualiService} from "./dialog-quali.service";
 import {DialogUploadsService} from "./dialog-uploads.service";
+import {DialogTestsService} from "./dialog-tests.service";
 
 
 
@@ -44,7 +45,8 @@ export class TeilerService {
     inquiryService: InquiryService,
     inquiryDialogService:InquiryDialogService,
     dialogQualiService:DialogQualiService,
-    dialogUploadsService: DialogUploadsService
+    dialogUploadsService: DialogUploadsService,
+    dialogTestsService: DialogTestsService
   ) {
     let embeddedTeilerApps = [qualityReportService, configurationService, functionTestsService, eventLogService, uploadsService, newInquiriesService, archivedInquiriesService, failedInquiriesService, inquiryService, inquiryDialogService, dialogQualiService, dialogUploadsService];
     this.fetchTeilerCoreAppsUrlAndUpdateTeilerApps(embeddedTeilerApps)

@@ -1,18 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {boxes} from '../boxes';
 import {DatePipe} from '@angular/common';
-import {data} from "./inhalttests";
-
+import {MatDialog} from "@angular/material/dialog";
+import {DialogTestsComponent} from "../pop-ups/dialog-tests/dialog-tests.component";
+import {data, Data } from '../pop-ups/dialog-tests/testinhalt1'
+import {Subscription} from "rxjs";
 @Component({
   selector: 'function-tests-app',
   templateUrl: './function-tests.component.html',
   styleUrls: ['./function-tests.component.css']
 })
 export class FunctionTestsComponent implements OnInit {
-//inhalt
-  data = data;
-
   //date
   today: Date = new Date();
   pipe = new DatePipe('en-US');
@@ -54,13 +52,21 @@ export class FunctionTestsComponent implements OnInit {
 
   }
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // @ts-ignore
     this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
 
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogTestsComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

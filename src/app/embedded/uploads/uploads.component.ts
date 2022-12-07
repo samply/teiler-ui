@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
-import {DialogUploadsComponent} from "../pop-ups/dialog-uploads/dialog-uploads.component";
-
 
 interface Options {
   value: string;
@@ -60,6 +57,13 @@ export class UploadsComponent implements OnInit {
     option2: this.option2Control,
     option3: this.option3Control,
   });
+
+  isShowDivIf = true;
+
+  toggleDisplayDivIf() {
+    this.isShowDivIf = !this.isShowDivIf;
+  }
+
 //table
   displayedColumns: string[] = ['uploadid', 'startedat', 'startedfrom', 'status'];
   dataSource = ELEMENT_DATA;
@@ -67,17 +71,10 @@ export class UploadsComponent implements OnInit {
   title = 'Uploads';
   panelOpenState = false;
 
-  constructor(private _formBuilder: FormBuilder,public dialog: MatDialog, private route: ActivatedRoute,) { }
+  constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {}
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogUploadsComponent, {});
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
-
-  }
 
 
 }

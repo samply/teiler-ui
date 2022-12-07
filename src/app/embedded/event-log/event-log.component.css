@@ -15,8 +15,7 @@ header{
   color: #fcfcfc;
 }
 .search{
-  font-family: Segoe Ui, serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   margin-left:960px;
   margin-top: 2.5%;
@@ -25,21 +24,19 @@ header{
 h1{
   color: white;
   text-align: left;
-  font-family: Segoe Ui, serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 28px;
 }
 h2{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 32px;
   margin-top: 1.5%;
 }
 .mat-elevation-z8 {
   width:100%;
   border-left: 30px;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   margin-top: 2%;
 }
 

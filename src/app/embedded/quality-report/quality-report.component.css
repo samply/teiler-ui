@@ -57,7 +57,7 @@ progress{
   width: 160%;
 }
 .matinput{
-  margin-left: 46.5%;
+  margin-left: 45%;
   font-family: Roboto, Helvetica Neue, sans-serif;
 }
 table{
@@ -76,6 +76,7 @@ table{
 }
 .paginator{
   margin-right: 0%;
+  background-color: #fafafa;
 }
 
 

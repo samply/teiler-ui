@@ -19,7 +19,8 @@ export enum EmbeddedTeilerApps {
   INQUIRY = 'inquiry',
   DIALOG_QUALI = 'dialog-quali',
   DIALOG_UPLOADS ='dialog-uploads',
-  INQUIRY_DIALOG = 'inquiry-dialog'
+  INQUIRY_DIALOG = 'inquiry-dialog',
+  DIALOG_TESTS = 'dialog-tests'
 }
 
 export interface TeilerAppRoute extends Route {

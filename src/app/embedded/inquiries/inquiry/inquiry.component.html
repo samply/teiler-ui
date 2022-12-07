@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="main">
   <div class="title">
-    <h2>Sarkome</h2>
+    <h2>{{querrydata.name}}</h2>
   </div>
   <div class="underhead">
     <button mat-stroked-button class="button">Patients</button>
@@ -298,7 +298,7 @@
     <div class="diagramm">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" style="float:left; width:70.5%">
+                             (closed)="panelOpenState = false" style="float:left; width:100%">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Diagramme
@@ -346,9 +346,9 @@
     <div class="datasets">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" class="datensätze" style="float:left;width:70.5%;">
+                             (closed)="panelOpenState = false" class="datensätze" style="float:left;width:100%;">
           <mat-expansion-panel-header>
-            <mat-panel-title style="font-family:Segoe UI,serif;color:dimgrey">
+            <mat-panel-title>
               Passende Datensätze
             </mat-panel-title>
           </mat-expansion-panel-header>

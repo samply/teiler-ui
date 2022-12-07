@@ -19,7 +19,7 @@ header{
 h1{
   color: white;
   text-align: left;
-  font-family: Segoe Ui, serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 28px;
 }
 .main{
@@ -34,33 +34,30 @@ h1{
 }
 h2{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 32px;
   margin-top: 1.5%;
 }
 h3{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 22px;
   margin-top: 1.5%;
 }
 h4{
   text-align: left;
-  font-family:Segoe UI,serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 19px;
   margin-top: 1.5%;
 }
 p{
   text-align: left;
-  font-family:Segoe UI,serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   margin-top: 1.5%;
 }
 .search{
-  font-family: Segoe Ui, serif;
-  color:dimgrey;
+font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   margin-top: 0.5%;
   margin-left: 960px;
@@ -89,7 +86,6 @@ mat-expansion-panel {
 
 .downloadandselector {
   flex-direction: column;
-
   padding-right: 10px;
 }
 
@@ -109,5 +105,5 @@ LogAndTable {
 }
 mat-paginator{
   margin-top: 1%;
-
+  background-color: #fafafa
 }

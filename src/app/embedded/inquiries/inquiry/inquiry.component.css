@@ -15,13 +15,12 @@
 h1{
   color: white;
   text-align: left;
-  font-family: Segoe Ui, serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 28px;
 }
 h2{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 32px;
   margin-top: 1.5%;
 }
@@ -36,7 +35,7 @@ h2{
 
 .underhead{
   text-align: left;
-  font-family:Segoe UI,serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
 
   color: white;
   margin-top: 1.5%;
@@ -49,8 +48,7 @@ h2{
 }
 .first{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   margin-top: 1.5%;
   width: 100%;
 
@@ -76,8 +74,7 @@ h2{
 .mat-expansion-panel{
   width: 25%;
   margin-top: 1%;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   align-items: flex-start;
 }
 .diagrammanddatasets{
@@ -122,7 +119,6 @@ h2{
   margin-top:2%;
   width: 70%;
 }
-
 
 .div1 {
   background-color: white;

@@ -2,9 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 import {DatePipe} from '@angular/common';
-import {boxes} from "../boxes";
-import {DialogQualiComponent} from "../pop-ups/dialog-quali/dialog-quali.component";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 
 export interface QualityReports {
@@ -71,14 +68,6 @@ export class QualityReportComponent implements OnInit {
   ngOnInit() {
     // @ts-ignore
     this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
-  }
-  openDialog(): void {
-    // @ts-ignore
-    const dialogRef = this.dialog.open(DialogQualiComponent, {});
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
   }
 
 }

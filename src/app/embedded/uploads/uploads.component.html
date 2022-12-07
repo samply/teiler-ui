@@ -15,7 +15,7 @@
   </div>
   <br>
   <div class="downloadandselector">
-    <mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
+    <mat-stepper orientation="horizontal" [linear]="isLinear" #stepper style="background-color: #fafafa">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <mat-form-field appearance="fill">
@@ -60,13 +60,24 @@
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <h4>Ihre Auswahl:</h4>
-          <p>{{optionControl.value}}</p>
-          <p>{{option2Control.value}}</p>
-          <p>{{option3Control.value}}</p>
+          <p>- {{optionControl.value}}</p>
+          <p>- {{option2Control.value}}</p>
+          <p>- {{option3Control.value}}</p>
           <br>
           <div>
             <button mat-stroked-button (click)="stepper.reset()">Auswahl zurücksetzen</button>
-            <button mat-stroked-button (click)="openDialog()">Starten</button>
+            <button mat-stroked-button (click)=toggleDisplayDivIf()>Starten</button>
+          </div>
+          <div mat-dialog-actions>
+            <div *ngIf="!isShowDivIf">
+              <p>Fortschritt:</p>
+              <br>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style="width: 25%; background-color: blue; color: white; border: 1px solid blue" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+              </div>
+              <br>
+            <button mat-stroked-button (click)=toggleDisplayDivIf()>Abbrechen</button>
+            </div>
           </div>
         </form>
       </mat-step>

@@ -22,6 +22,7 @@ import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component"
 import {DialogUploadsComponent} from "../embedded/pop-ups/dialog-uploads/dialog-uploads.component";
 import {InquiryDialogComponent} from "../embedded/pop-ups/inquiry-dialog/inquiry-dialog.component";
 import {DialogQualiComponent} from "../embedded/pop-ups/dialog-quali/dialog-quali.component";
+import {DialogTestsComponent} from "../embedded/pop-ups/dialog-tests/dialog-tests.component";
 
 
 
@@ -42,7 +43,8 @@ export const routingComponents = [
   TeilerAppPluginOrchestratorComponent,
   DialogUploadsComponent,
   InquiryDialogComponent,
-  DialogQualiComponent
+  DialogQualiComponent,
+  DialogTestsComponent
 ]
 
 const routes: Routes = RouteManagerService.fetchBasicRoutes();
