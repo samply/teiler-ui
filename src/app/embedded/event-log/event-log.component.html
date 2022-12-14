@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="main">
   <div class="title">
-    <h2>Log</h2>
+    <h2>Event Log</h2>
   </div>
   <div class="over">
     <hr>
@@ -39,11 +39,10 @@
     </div>
     <div>
       <mat-paginator
-        [length]="100"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page">
-      </mat-paginator>
+        #paginator
+        [pageSizeOptions]="[10,25,50,100]"
+        showFirstLastButtons
+     style="background-color: #fafafa" ></mat-paginator>
     </div>
   </div>
 </div>

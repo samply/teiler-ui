@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {Subscription} from "rxjs";
-//import {data, Data} from "./testinhalt1";
-import {ActivatedRoute} from "@angular/router";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+//import {Data, data} from '../../function-tests/function-tests.component';
 
-interface Data {
+export interface Data {
   id: number;
   inhalt: string;
 }
 export const data: Data[]= [
   {
     id:0,
-    inhalt:'GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 ',
+    inhalt:"GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 "
 
   },
   {
@@ -59,7 +57,6 @@ export const data: Data[]= [
       '<ns10:Inquiry id="0" revision="1" xmlns:ns6="http://schema.samply.de/common/RangeAttribute" xmlns:ns5="http://schema.samply.de/common/MultivalueAttribute" xmlns:ns8="http://schema.samply.de/common/QueryResultStatistic" xmlns:ns7="http://schema.samply.de/common/MdrKey" xmlns:ns9="http://schema.samply.de/common/Error" xmlns:ns11="http://schema.samply.de/cql/CqlQueryList" xmlns:ns10="http://schema.samply.de/common/Inquiry" xmlns:ns2="http://schema.samply.de/common/Query" xmlns:ns4="http://schema.samply.de/common/Attribute" xmlns:ns3="http://schema.samply.de/common/Value"><ns2:Query><ns2:Where><ns2:And><ns2:Eq><ns4:Attribute><ns7:MdrKey>urn:dktk:dataelement:1:*</ns7:MdrKey><ns3:Value>M</ns3:Value></ns4:Attribute></ns2:Eq></ns2:And></ns2:Where></ns2:Query><ns10:ExposeURL>https://decentralsearch-test.ccp-it.dktk.dkfz.de/rest/test/exposes/0</ns10:ExposeURL><ns10:Author><ns10:title>-</ns10:title><ns10:firstname>n/a</ns10:firstname><ns10:lastname>n/a</ns10:lastname><ns10:phone>-</ns10:phone><ns10:email>no-reply@ccp-it.dktk.dkfz.de</ns10:email><ns10:organization>DKTK CCP-IT</ns10:organization></ns10:Author><ns10:Label>Testquery</ns10:Label><ns10:Description>This is just a testquery.</ns10:Description><ns10:SearchFor>patienten</ns10:SearchFor></ns10:Inquiry> ',
   },
 ]
-
 @Component({
   selector: 'samply-dialog-tests',
   templateUrl: './dialog-tests.component.html',
@@ -67,13 +64,13 @@ export const data: Data[]= [
 })
 export class DialogTestsComponent implements OnInit {
 
-  subscription: Subscription | undefined = undefined;
-  querrydata2: Data = {id:0,inhalt:""};
-  data: Data | undefined;
-  constructor(private route: ActivatedRoute, public dialogRef: MatDialogRef<DialogTestsComponent>) { }
+  // @ts-ignore
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Data) { }
 
   ngOnInit(): void {
 
   }
-
+  logInhalt(): void {
+    console.log( this.data.inhalt );
+  }
 }

@@ -50,16 +50,14 @@ button{
 progress{
   background-color: blue;
 }
+
 .search{
   font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   margin-top: 0.5%;
-  width: 160%;
+  margin-left: 960px;
 }
-.matinput{
-  margin-left: 45%;
-  font-family: Roboto, Helvetica Neue, sans-serif;
-}
+
 table{
   text-align: center;
   width: 100%;

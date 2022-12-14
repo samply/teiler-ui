@@ -18,18 +18,10 @@
     </div>
 
   </div>
-  <div class="search" style="margin-top: 20px" >
-    <p> Einträge anzeigen:</p>
-    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;margin-bottom: 30px">
-
-      <option value="10" selected>10</option>
-      <option value="25" selected>25</option>
-      <option value="50" selected>50</option>
-      <option value="100" selected>100</option>
-    </select>
-    <label class="matinput" style="float:left; margin-bottom: 30px">
-      Suche:
-      <input matInput style="border:0.5px solid; border-radius: 3px">
+  <div class="search">
+    Suche:
+    <label class="matinput" >
+      <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
     </label>
   </div>
 
@@ -51,9 +43,10 @@
     </table>
   </div>
   <div class="paginator">
-    <mat-paginator [length]="20"
-                   [pageSize]="20"
-                   aria-label="Select page">
-    </mat-paginator>
+      <mat-paginator
+        #paginator
+        [pageSizeOptions]="[5,10,25,100]"
+        showFirstLastButtons
+         style="background-color: #fafafa;"></mat-paginator>
   </div>
 </div>

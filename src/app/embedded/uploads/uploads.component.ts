@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from "@angular/router";
+import {MatTableDataSource} from "@angular/material/table";
+import { MatPaginator } from '@angular/material/paginator';
 
 interface Options {
   value: string;
@@ -14,18 +16,16 @@ export interface UploadsTable {
   status: string;
 }
 
-const ELEMENT_DATA: UploadsTable[] = [
-  {uploadid: 684, startedat: '27.05.2022 16:07:05', startedfrom: 'admin', status: 'US_CANCELED'},
-  {uploadid: 685, startedat: '30.05.2022 16:28:13', startedfrom: 'admin', status: 'US_COMPLETED'},
-]
-
 @Component({
   selector: 'uploads',
   templateUrl: './uploads.component.html',
   styleUrls: ['./uploads.component.css']
 })
 export class UploadsComponent implements OnInit {
-
+  EmpData: UploadsTable[] = [
+    {uploadid: 684, startedat: '27.05.2022 16:07:05', startedfrom: 'admin', status: 'US_CANCELED'},
+    {uploadid: 685, startedat: '30.05.2022 16:28:13', startedfrom: 'admin', status: 'US_COMPLETED'},
+  ]
   //stepper
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -66,13 +66,19 @@ export class UploadsComponent implements OnInit {
 
 //table
   displayedColumns: string[] = ['uploadid', 'startedat', 'startedfrom', 'status'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(this.EmpData);
 
   title = 'Uploads';
   panelOpenState = false;
 
   constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute,) { }
 
+  // @ts-ignore
+  @ViewChild('paginator') paginator: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
   ngOnInit(): void {}
 
 
