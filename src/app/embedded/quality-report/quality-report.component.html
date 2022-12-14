@@ -7,33 +7,23 @@
     <hr>
   </div>
   <div class="button">
-    <button (click)=toggleDisplayDivIf() >generate</button>
+    <button mat-stroked-button (click)=toggleDisplayDivIf() >generate</button>
     <div *ngIf="!isShowDivIf">
       <p><br>Startzeit: {{todayWithPipe}}<br> Bisherige Laufzeit: 0 min<br>Restlaufzeit: 0 min <br><br></p>
       <div class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
       </div>
       <p><br>-requesting local data management statistics<br>-requesting local data management results</p>
-      <button (click)=toggleDisplayDivIf() >cancel</button>
+      <button mat-stroked-button (click)=toggleDisplayDivIf() >cancel</button>
     </div>
 
   </div>
   <div class="search">
-    <p> Einträge anzeigen:</p>
-    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;">
-
-      <option value="10" selected>10</option>
-      <option value="25" selected>25</option>
-      <option value="50" selected>50</option>
-      <option value="100" selected>100</option>
-    </select>
-    <label class="matinput">
-      Suche:
-      <input matInput style="border:0.5px solid">
+    Suche:
+    <label class="matinput" >
+      <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
     </label>
   </div>
-
-
 
   <div class="tablex">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -53,9 +43,10 @@
     </table>
   </div>
   <div class="paginator">
-    <mat-paginator [length]="20"
-                   [pageSize]="20"
-                   aria-label="Select page">
-    </mat-paginator>
+      <mat-paginator
+        #paginator
+        [pageSizeOptions]="[5,10,25,100]"
+        showFirstLastButtons
+         style="background-color: #fafafa;"></mat-paginator>
   </div>
 </div>

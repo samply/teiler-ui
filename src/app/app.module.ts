@@ -36,6 +36,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BarChartModule} from "@swimlane/ngx-charts";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import {BarChartModule} from "@swimlane/ngx-charts";
     ExternalLinkDirective,
     TeilerBoxComponent,
     TeilerWelcomeComponent
+
   ],
   imports: [
     AppRoutingModule,
@@ -57,6 +61,7 @@ import {BarChartModule} from "@swimlane/ngx-charts";
     KeycloakAngularModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -70,12 +75,15 @@ import {BarChartModule} from "@swimlane/ngx-charts";
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
+    MatStepperModule,
+    MatTabsModule,
     MatTableModule,
     MatToolbarModule,
     NoopAnimationsModule,
     ParcelModule,
     ReactiveFormsModule,
-    TeilerModule
+    TeilerModule,
+
   ],
   providers: [
     {

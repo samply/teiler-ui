@@ -1,12 +1,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="main">
   <div class="title">
-    <h2>Sarkome</h2>
+    <h2>{{querrydata.name}}</h2>
   </div>
   <div class="underhead">
-    <button mat-stroked-button>Patients</button>
-    <button mat-stroked-button>Biomaterial</button>
-    <button mat-stroked-button>Clinical Data</button>
+    <button mat-stroked-button class="button">Patients</button>
+    <button mat-stroked-button class="button">Biomaterial</button>
+    <button mat-stroked-button class="button">Clinical Data</button>
+
+    <button mat-raised-button (click)="openDialog()" style="margin-left: 835px;">Verlauf</button>
   </div>
   <div class="over">
     <hr>
@@ -30,87 +32,52 @@
         <button mat-menu-item>Ergebnisliste erzeugen</button>
         <button mat-menu-item>Nur Anzahl abfragen</button>
       </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menu2" disabled style="margin-left:7%;padding-left:4%; padding-right: 4%">
+      <button mat-button [matMenuTriggerFor]="menu2" disabled style="margin-left:120px;padding-left:4%; padding-right: 4%">
         Bereits beantwortet
       </button>
       <mat-menu #menu2="matMenu">
       </mat-menu>
-      <button mat-button style="padding-left:6%; padding-right: 6%">Archivieren</button>
+      <button mat-button style="padding-left:6.5%; padding-right: 6.5%">Archivieren</button>
     </div>
     <div class="second">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="float:left; width:32%">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Beschreibung
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Der Anfragesteller hat keinen Beschreibungstext eingegeben.</p>
-        <hr>
-        <p>Expóse herunterladen</p>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="float:left; width:32%; margin-left:6.5%">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Verlauf
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div *ngFor="let daten of dataSource">
-          <mat-card>
-            {{daten.name}}
-          </mat-card>
+      <div>
+        <div>
+          <mat-tab-group>
+            <mat-tab label="Beschreibung">
+              <br>
+              <p>Der Anfragesteller hat keinen Beschreibungstext eingegeben.</p>
+              <hr>
+              <p>Expóse herunterladen</p>
+            </mat-tab>
+            <mat-tab label="Dokumente">
+              <br>
+              Keine Dokumente angehängt
+              <hr>
+              Datei auswählen <br> <br>
+              <input type="file" class="file-upload" onchange="console.log(event.target.files)">
+            </mat-tab>
+            <mat-tab label="Kontakt">
+              <br>
+              <p>
+                Name:Pierre Deply <br>
+                Telefonnummer: <br>
+                Email:p.deply@dkfz.heidelberg.de <br>
+                Institution:
+              </p>
+            </mat-tab>
+            <mat-tab label="Antwort">
+              <br>
+              Beantwortet am: <br>
+              Antwort: 261
+            </mat-tab>
+          </mat-tab-group>
         </div>
-      </mat-expansion-panel>
-    </div>
-
-    <div class="third">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="float:left; width:32%">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Kontakt
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>
-          Name:Pierre Deply <br>
-          Telefonnummer: <br>
-          Email:p.deply@dkfz.heidelberg.de <br>
-          Institution:</p>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="float:left; width:32%; margin-left: 6.5%">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Dokumente
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        Dokument <br>
-        Keine Dokumente angehängt
-        <hr>
-        Datei auswählen <br> <br>
-        <input type="file" class="file-upload" onchange="console.log(event.target.files)">
-      </mat-expansion-panel>
-    </div>
-    <div class="fourth">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="float:right; width:32%; margin-right: 19.5%">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Antwort
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        Beantwortet am: <br>
-        Antwort: 261
-      </mat-expansion-panel>
-    </div>
+        <br>
 
     <div class="fifth">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" class="expand" style="float:left;width:70.5%">
+                             (closed)="panelOpenState = false" class="expand" style="float:left;width:100%">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Suchkriterien
@@ -331,7 +298,7 @@
     <div class="diagramm">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" style="float:left; width:70.5%">
+                             (closed)="panelOpenState = false" style="float:left; width:100%">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Diagramme
@@ -379,9 +346,9 @@
     <div class="datasets">
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false" class="datensätze" style="float:left;width:70.5%;">
+                             (closed)="panelOpenState = false" class="datensätze" style="float:left;width:100%;">
           <mat-expansion-panel-header>
-            <mat-panel-title style="font-family:Segoe UI,serif;color:dimgrey">
+            <mat-panel-title>
               Passende Datensätze
             </mat-panel-title>
           </mat-expansion-panel-header>

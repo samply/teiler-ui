@@ -25,7 +25,7 @@ export class ActiveInquiriesComponent extends InquiriesComponent{
   };
 
   getTitel(): string {
-    return "Active Suchanfragen";
+    return "Aktive Suchanfragen";
   }
 
 }

@@ -1,8 +1,3 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {DatePipe} from '@angular/common';
-import {MatDialog} from "@angular/material/dialog";
-import {DialogTestsComponent} from "../pop-ups/dialog-tests/dialog-tests.component";
 
 export interface Data {
   id: number;
@@ -11,7 +6,7 @@ export interface Data {
 export const data: Data[]= [
   {
     id:0,
-    inhalt:"GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 "
+    inhalt:'GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 ',
 
   },
   {
@@ -59,73 +54,3 @@ export const data: Data[]= [
       '<ns10:Inquiry id="0" revision="1" xmlns:ns6="http://schema.samply.de/common/RangeAttribute" xmlns:ns5="http://schema.samply.de/common/MultivalueAttribute" xmlns:ns8="http://schema.samply.de/common/QueryResultStatistic" xmlns:ns7="http://schema.samply.de/common/MdrKey" xmlns:ns9="http://schema.samply.de/common/Error" xmlns:ns11="http://schema.samply.de/cql/CqlQueryList" xmlns:ns10="http://schema.samply.de/common/Inquiry" xmlns:ns2="http://schema.samply.de/common/Query" xmlns:ns4="http://schema.samply.de/common/Attribute" xmlns:ns3="http://schema.samply.de/common/Value"><ns2:Query><ns2:Where><ns2:And><ns2:Eq><ns4:Attribute><ns7:MdrKey>urn:dktk:dataelement:1:*</ns7:MdrKey><ns3:Value>M</ns3:Value></ns4:Attribute></ns2:Eq></ns2:And></ns2:Where></ns2:Query><ns10:ExposeURL>https://decentralsearch-test.ccp-it.dktk.dkfz.de/rest/test/exposes/0</ns10:ExposeURL><ns10:Author><ns10:title>-</ns10:title><ns10:firstname>n/a</ns10:firstname><ns10:lastname>n/a</ns10:lastname><ns10:phone>-</ns10:phone><ns10:email>no-reply@ccp-it.dktk.dkfz.de</ns10:email><ns10:organization>DKTK CCP-IT</ns10:organization></ns10:Author><ns10:Label>Testquery</ns10:Label><ns10:Description>This is just a testquery.</ns10:Description><ns10:SearchFor>patienten</ns10:SearchFor></ns10:Inquiry> ',
   },
 ]
-@Component({
-  selector: 'function-tests-app',
-  templateUrl: './function-tests.component.html',
-  styleUrls: ['./function-tests.component.css']
-})
-export class FunctionTestsComponent implements OnInit {
-  //date
-  today: Date = new Date();
-  pipe = new DatePipe('en-US');
-  todayWithPipe = null;
-
-  //Panel state
-  panelOpenState = false;
-  togglePanel() {
-    this.panelOpenState = !this.panelOpenState
-  }
-  //generator
-  title = 'appComponent';
-
-  isShowDivIf = true;
-
-  toggleDisplayDivIf() {
-    this.isShowDivIf = !this.isShowDivIf;
-  }
-  //info button
-  isShowInfo= false;
-  isShowInfo1= false;
-  isShowInfo2= false;
-  isShowInfo3= false;
-  isShowInfo4= false;
-  isShowInfo5= false;
-  isShowInfo6= false;
-  isShowInfo7= false;
-
-  //infocheck
-  showInf=false;
-
-  toggleData() {
-    this.isShowInfo = !this.isShowInfo;
-    this.isShowInfo1 = !this.isShowInfo1;
-    this.isShowInfo2 = !this.isShowInfo2;
-    this.isShowInfo3 = !this.isShowInfo3;
-    this.isShowInfo4 = !this.isShowInfo4;
-    this.isShowInfo5 = !this.isShowInfo5;
-    this.isShowInfo6 = !this.isShowInfo6;
-    this.isShowInfo7 = !this.isShowInfo7;
-    this.showInf = !this.showInf;
-  }
-
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
-  }
-  ngOnInit(): void {
-    // @ts-ignore
-    this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
-
-    }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogTestsComponent, {
-      data: {
-        id:0,
-        inhalt: "GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 "
-  }
-  });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
-  }
-
-}

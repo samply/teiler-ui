@@ -1,25 +1,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="main">
   <div class="title">
-    <h2>Log</h2>
+    <h2>Event Log</h2>
   </div>
   <div class="over">
     <hr>
   </div>
   <div class="search">
-    <p>Einträge Anzeigen: </p>
-    <select class="form-control input-sm" aria-controls="logTable" style="width:4%; float: left;">
-      <option value="10" selected>10</option>
-      <option value="25" selected>25</option>
-      <option value="50" selected>50</option>
-      <option value="100" selected>100</option>
-    </select>
+    Suche:
     <label class="matinput">
-      Suche:
-      <input matInput style="border:0.5px solid">
+      <input matInput style="border:1px solid dimgrey; width: 175px; border-radius:4px; padding: 2px;">
     </label>
   </div>
-  <div class="wholetable">
+
+  <div>
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -45,11 +39,10 @@
     </div>
     <div>
       <mat-paginator
-        [length]="100"
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page">
-      </mat-paginator>
+        #paginator
+        [pageSizeOptions]="[10,25,50,100]"
+        showFirstLastButtons
+     style="background-color: #fafafa" ></mat-paginator>
     </div>
   </div>
 </div>

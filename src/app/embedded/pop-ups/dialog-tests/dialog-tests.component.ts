@@ -1,8 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {DatePipe} from '@angular/common';
-import {MatDialog} from "@angular/material/dialog";
-import {DialogTestsComponent} from "../pop-ups/dialog-tests/dialog-tests.component";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+//import {Data, data} from '../../function-tests/function-tests.component';
 
 export interface Data {
   id: number;
@@ -60,72 +58,19 @@ export const data: Data[]= [
   },
 ]
 @Component({
-  selector: 'function-tests-app',
-  templateUrl: './function-tests.component.html',
-  styleUrls: ['./function-tests.component.css']
+  selector: 'samply-dialog-tests',
+  templateUrl: './dialog-tests.component.html',
+  styleUrls: ['./dialog-tests.component.css']
 })
-export class FunctionTestsComponent implements OnInit {
-  //date
-  today: Date = new Date();
-  pipe = new DatePipe('en-US');
-  todayWithPipe = null;
+export class DialogTestsComponent implements OnInit {
 
-  //Panel state
-  panelOpenState = false;
-  togglePanel() {
-    this.panelOpenState = !this.panelOpenState
-  }
-  //generator
-  title = 'appComponent';
+  // @ts-ignore
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Data) { }
 
-  isShowDivIf = true;
-
-  toggleDisplayDivIf() {
-    this.isShowDivIf = !this.isShowDivIf;
-  }
-  //info button
-  isShowInfo= false;
-  isShowInfo1= false;
-  isShowInfo2= false;
-  isShowInfo3= false;
-  isShowInfo4= false;
-  isShowInfo5= false;
-  isShowInfo6= false;
-  isShowInfo7= false;
-
-  //infocheck
-  showInf=false;
-
-  toggleData() {
-    this.isShowInfo = !this.isShowInfo;
-    this.isShowInfo1 = !this.isShowInfo1;
-    this.isShowInfo2 = !this.isShowInfo2;
-    this.isShowInfo3 = !this.isShowInfo3;
-    this.isShowInfo4 = !this.isShowInfo4;
-    this.isShowInfo5 = !this.isShowInfo5;
-    this.isShowInfo6 = !this.isShowInfo6;
-    this.isShowInfo7 = !this.isShowInfo7;
-    this.showInf = !this.showInf;
-  }
-
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
-  }
   ngOnInit(): void {
-    // @ts-ignore
-    this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy h:mm:ss a zzzz');
 
-    }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogTestsComponent, {
-      data: {
-        id:0,
-        inhalt: "GET https://centralsearch-test.ccpit.dktk.dkfz.de:443/dktk/sites/teststandort/teiler/ttlrhd3/uploadStats HTTP/1.1 \n HTTP/1.1 200 "
   }
-  });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
+  logInhalt(): void {
+    console.log( this.data.inhalt );
   }
-
 }

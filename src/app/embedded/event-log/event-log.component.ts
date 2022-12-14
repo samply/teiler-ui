@@ -1,11 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Injectable, NgModule, ViewChild, AfterViewInit} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from "@angular/material/table";
 
 export interface PeriodicElement {
   timestamp: string;
   message: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+@Component({
+  selector: 'event-log-app',
+  templateUrl: './event-log.component.html',
+  styleUrls: ['./event-log.component.css']
+})
+export class EventLogComponent implements OnInit {
+  EmpData: PeriodicElement[] = [
   {timestamp: '26.09.2022 11:34:06', message: 'System startup'},
   {timestamp: '26.09.2022 11:25:46', message: 'User created: tobias'},
   {timestamp: '26.09.2022 11:25:26', message: 'User created: valerie'},
@@ -653,19 +661,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {timestamp: '29.07.2020 23:00:00', message: 'No credentials entered for central mds db'},
   {timestamp: '29.07.2020 19:37:07', message: 'System startup'},
 ];
-
-@Component({
-  selector: 'event-log-app',
-  templateUrl: './event-log.component.html',
-  styleUrls: ['./event-log.component.css']
-})
-export class EventLogComponent implements OnInit {
-
   displayedColumns: string[] = ['timestamp', 'message'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(this.EmpData);
 
   constructor() { }
 
+  // @ts-ignore
+  @ViewChild('paginator') paginator: MatPaginator;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
   ngOnInit(): void {
   }
 

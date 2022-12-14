@@ -16,30 +16,20 @@ header{
   margin-right:auto;
 }
 .main{
-  width: 80%;
+  width: 1200px;
   margin-left:auto;
   margin-right:auto;
 }
 .over{
-  width: 70%;
-  margin-left: 12.5%;
-  margin-right: 10%;
+  width: 100%;
   color: #fcfcfc;
   margin-top: 1%;
 }
-h1{
-  color: white;
-  text-align: left;
-  font-family: Segoe Ui, serif;
-  font-size: 28px;
-  margin-left: 22%;
-}
+
 h2{
   text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 36px;
-  margin-left: 14%;
   margin-top: 1.5%;
 }
 button{
@@ -47,37 +37,30 @@ button{
   color: white;
   font-size: 14px;
   border-radius: 10px;
-  font-family:Segoe UI,serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   padding: 0.5%;
 }
 .button{
   margin-top:1.5%;
-  font-family:Segoe UI,serif;
+  font-family: Roboto, Helvetica Neue, sans-serif;
   text-align: left;
-  margin-left: 12.5%;
   font-size: 14px;
-  width: 70%;
+  width: 100%;
 }
 progress{
   background-color: blue;
 }
-.search{
-  font-family: Segoe Ui, serif;
-  color:dimgrey;
-  font-size: 16px;
-  margin-left: 12.5%;
-  margin-top: 0.5%;
-}
-.matinput{
-  margin-left: 60.5%;
 
+.search{
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  margin-top: 0.5%;
+  margin-left: 960px;
 }
 
 table{
   text-align: center;
-  width: 70%;
-  color: dimgrey;
-  margin-left: 12.5%;
+  width: 100%;
   margin-top: 2%;
 }
 .mat-column-zeitstempel {
@@ -90,20 +73,8 @@ table{
   text-align: center;
 }
 .paginator{
-  margin-right: 20%;
+  margin-right: 0%;
+  background-color: #fafafa;
 }
-h1{
-  color: white;
-  text-align: left;
-  font-family: Segoe Ui, serif;
-  font-size: 28px;
-  margin-left: 20%;
-}
-h2{
-  text-align: left;
-  font-family:Segoe UI,serif;
-  color:dimgrey;
-  font-size: 32px;
-  margin-left: 12.5%;
-  margin-top: 1.5%;
-}
+
+

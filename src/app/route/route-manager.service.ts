@@ -24,6 +24,10 @@ import {ActiveInquiriesComponent} from "../embedded/inquiries/active-inquiries.c
 import {ArchivedInquiriesComponent} from "../embedded/inquiries/archived-inquiries.component";
 import {FailedInquiriesComponent} from "../embedded/inquiries/failed-inquiries.component";
 import {InquiryComponent} from "../embedded/inquiries/inquiry/inquiry.component";
+import {InquiryDialogComponent} from "../embedded/pop-ups/inquiry-dialog/inquiry-dialog.component";
+import {DialogUploadsComponent} from "../embedded/pop-ups/dialog-uploads/dialog-uploads.component";
+import {DialogQualiComponent} from "../embedded/pop-ups/dialog-quali/dialog-quali.component";
+import {DialogTestsComponent} from "../embedded/pop-ups/dialog-tests/dialog-tests.component";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +47,11 @@ export class RouteManagerService {
     {name: EmbeddedTeilerApps.ACTIVE_INQUIRIES, component: ActiveInquiriesComponent},
     {name: EmbeddedTeilerApps.ARCHIVED_INQUIRIES, component: ArchivedInquiriesComponent},
     {name: EmbeddedTeilerApps.FAILED_INQUIRIES, component: FailedInquiriesComponent},
-    {name: EmbeddedTeilerApps.INQUIRY, component: InquiryComponent}
+    {name: EmbeddedTeilerApps.INQUIRY, component: InquiryComponent},
+    {name: EmbeddedTeilerApps.INQUIRY_DIALOG, component: InquiryDialogComponent},
+    {name: EmbeddedTeilerApps.DIALOG_UPLOADS, component: DialogUploadsComponent},
+    {name: EmbeddedTeilerApps.DIALOG_QUALI, component: DialogQualiComponent},
+    {name: EmbeddedTeilerApps.DIALOG_TESTS, component: DialogTestsComponent}
   ].map(teilerAppComponent => [teilerAppComponent.name, teilerAppComponent.component]));
 
   constructor(teilerService: TeilerService, private router: Router) {
